@@ -1,0 +1,1037 @@
+<title>Veyroni — Sites para pequenos negócios</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Você foca no seu negócio, a gente cuida do site. Sites profissionais para pequenos negócios.">
+<meta name="theme-color" content="#1a1a1a">
+<meta property="og:title" content="Veyroni — Sites para pequenos negócios">
+<meta property="og:description" content="Você foca no seu negócio, a gente cuida do site.">
+<meta property="og:type" content="website">
+
+<style>
+/* ============================================
+   TOKENS
+   ============================================ */
+:root {
+  --color-black: #1a1a1a;
+  --color-gold: #d4af37;
+  --color-beige: #f5f1eb;
+  --color-text-light: #f5f1eb;
+  --color-text-dark: #1a1a1a;
+  --color-border: #3a3a3a;
+
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  --size-text-sm: 1.1rem;
+  --size-text-base: 1.25rem;
+  --size-text-lg: 1.375rem;
+  --size-text-xl: 1.75rem;
+  --size-text-2xl: 2.25rem;
+  --size-text-3xl: 3rem;
+  --size-text-4xl: 4rem;
+
+  --transition: 300ms ease;
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-text-sm);
+  line-height: 1.6;
+  color: var(--color-text-light);
+  background-color: var(--color-black);
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+}
+
+/* ============================================
+   TIPOGRAFIA
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+  letter-spacing: -0.5px;
+}
+
+h1 { font-size: var(--size-text-4xl); margin-bottom: var(--space-md); }
+h2 { font-size: var(--size-text-3xl); margin-bottom: var(--space-lg); color: var(--color-gold); }
+h3 { font-size: var(--size-text-xl); margin-bottom: var(--space-sm); }
+
+p {
+  margin-bottom: var(--space-md);
+  color: rgba(245, 241, 235, 0.8);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: var(--font-display);
+  font-size: var(--size-text-sm);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   COMPONENTES
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  background-color: #c9a227;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+  background-color: rgba(212, 175, 55, 0.15);
+  border-color: #c9a227;
+  color: #c9a227;
+}
+
+.section {
+  padding-block: var(--space-2xl);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+@media (max-width: 480px) {
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  padding-block: var(--space-md);
+  padding-top: calc(var(--space-md) + env(safe-area-inset-top, 0px));
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--space-md);
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--size-text-lg);
+  color: var(--color-beige);
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.logo-text .highlight {
+  color: var(--color-gold);
+}
+
+nav {
+  display: none;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: var(--size-text-sm);
+    color: rgba(245, 241, 235, 0.7);
+    transition: color var(--transition);
+  }
+
+  nav a:hover {
+    color: var(--color-gold);
+  }
+}
+
+.header-cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-cta {
+    display: block;
+  }
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  padding-block: var(--space-2xl);
+  min-height: auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-block: 5rem 6rem;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: var(--size-text-3xl);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-light);
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: var(--size-text-lg);
+  color: var(--color-gold);
+  margin-bottom: var(--space-lg);
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: var(--size-text-base);
+  margin-bottom: var(--space-lg);
+  color: rgba(245, 241, 235, 0.8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .hero-ctas {
+    flex-direction: row;
+  }
+}
+
+/* ============================================
+   ABOUT / QUEM SOMOS
+   ============================================ */
+.about {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.about-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: var(--size-text-base);
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+}
+
+.about-content p:last-child {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* ============================================
+   POR QUE TER UM SITE
+   ============================================ */
+.why-website {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.why-website h2 {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.stats-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: var(--space-2xl);
+}
+
+.stat-card {
+  background-color: rgba(212, 175, 55, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 2px;
+  padding: var(--space-lg);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.stat-card:hover {
+  background-color: rgba(212, 175, 55, 0.08);
+  border-color: var(--color-gold);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+  font-family: 'Playfair Display', serif;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.why-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-content p {
+  font-size: var(--size-text-base);
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+}
+
+.why-content p:first-child,
+.why-content p:last-child {
+  color: rgba(245, 241, 235, 0.9);
+}
+
+.why-content strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* ============================================
+   PORTFOLIO
+   ============================================ */
+.portfolio {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.portfolio h2 {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+.portfolio-card {
+  background-color: rgba(212, 175, 55, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.portfolio-card:hover {
+  background-color: rgba(212, 175, 55, 0.08);
+  border-color: var(--color-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.15);
+}
+
+.portfolio-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.08) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  color: rgba(212, 175, 55, 0.6);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition);
+}
+
+.portfolio-card:hover .portfolio-image {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.12) 100%);
+}
+
+.portfolio-emoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.portfolio-cta {
+  font-size: var(--size-text-sm);
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-content {
+  padding: var(--space-lg);
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio-card h3 {
+  color: var(--color-gold);
+  margin-bottom: var(--space-sm);
+  font-size: var(--size-text-lg);
+}
+
+.portfolio-card p {
+  font-size: var(--size-text-sm);
+  margin: 0;
+}
+
+/* ============================================
+   COMO FUNCIONA
+   ============================================ */
+.how-it-works {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .step {
+    gap: var(--space-xl);
+  }
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--size-text-xl);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step h3 {
+  color: var(--color-gold);
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.step p {
+  margin: 0;
+  font-size: var(--size-text-sm);
+}
+
+/* ============================================
+   CONTATO
+   ============================================ */
+.contact {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 500px;
+  margin: var(--space-lg) auto;
+  font-size: var(--size-text-base);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 480px) {
+  .contact-info {
+    gap: var(--space-lg);
+  }
+}
+
+.contact-cta {
+  margin-top: var(--space-lg);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  padding-block: var(--space-lg);
+  margin-top: var(--space-2xl);
+  text-align: center;
+  font-size: var(--size-text-sm);
+  color: rgba(245, 241, 235, 0.6);
+}
+
+.footer-links {
+  margin-bottom: var(--space-md);
+}
+
+.footer-links a {
+  margin: 0 var(--space-sm);
+  color: var(--color-gold);
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   ACESSIBILIDADE
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+</style>
+
+<!-- ============================================
+     HEADER
+     ============================================ -->
+<header role="banner">
+  <div class="header-content">
+    <a href="#home" class="logo">
+      <div class="logo-text">VEYRONI<span class="highlight">.CO</span></div>
+    </a>
+    <nav role="navigation">
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#por-que-site">Por que ter site</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <button class="btn-primary" id="header-cta" data-evento="cta-header">
+        Falar com a gente
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section id="home" class="hero container" role="main">
+  <div>
+    <h1>Você foca no seu negócio, a gente cuida do site</h1>
+    <p class="hero-subtitle">Sites profissionais para pequenos negócios</p>
+    <p class="hero-description">Criamos sites que vendem.<br>Você fica livre para focar no que você faz melhor.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" id="hero-cta" data-evento="cta-hero">
+        Começar agora
+      </button>
+      <button class="btn-outline" id="hero-portfolio" data-evento="cta-portfolio">
+        Ver portfolio
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     POR QUE TER UM SITE
+     ============================================ -->
+<section id="por-que-site" class="why-website container">
+  <h2>Por que ter um site?</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">72%</div>
+      <p>dos consumidores pesquisam online antes de fazer uma compra, mesmo em lojas físicas</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">88%</div>
+      <p>das pessoas confiam mais em empresas que têm um site profissional</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">3x</div>
+      <p>mais propensos a comprar de uma empresa com presença online ativa</p>
+    </div>
+  </div>
+
+  <div class="why-content">
+    <p><strong>Seu cliente está procurando você agora.</strong> Quando alguém precisa de um produto ou serviço, a primeira coisa que faz é buscar no Google. Se você não aparecer, alguém aparecerá no lugar.</p>
+
+    <p>Um site não é um luxo — é uma necessidade. É como ter uma porta aberta 24 horas, 7 dias por semana, para que seus clientes possam te encontrar, conhecer seus produtos e tomar a decisão de compra.</p>
+
+    <p>Muitas pequenas empresas perdem vendas todos os dias porque não têm presença online. Não seja uma delas. <strong>Ter um site profissional é investir no crescimento do seu negócio.</strong></p>
+  </div>
+</section>
+
+<!-- ============================================
+     PORTFOLIO
+     ============================================ -->
+<section id="portfolio" class="portfolio container">
+  <h2>Portfolio</h2>
+  <p style="text-align: center; margin-bottom: var(--space-2xl); color: rgba(212, 175, 55, 0.8); font-size: 1.1rem;">Esses são exemplos de sites com estabelecimentos fictícios que criamos como modelos. Clique para ver na prática como ficaria seu negócio online.</p>
+  <div class="portfolio-grid">
+    <a href="https://chama-burger-1.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">🍔</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Chama Burger</h3>
+          <p>Lanchonete com cardápio integrado e pedidos pelo WhatsApp</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://ateli-bruma.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">👗</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Ateliê da Bruna</h3>
+          <p>Loja de roupas com catálogo de produtos e guia de medidas</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://forjafitveyroni1.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">💪</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Forja Fit</h3>
+          <p>Academia com tabela de planos e agendamento de aulas</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://barbearia-coragem-1.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">✂️</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Barbearia Coragem</h3>
+          <p>Barbearia com agendamento online e galeria de trabalhos</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://alicerceimoveis.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">🏠</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Alicerce Imóveis</h3>
+          <p>Imobiliária com catálogo de propriedades e busca inteligente</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://aurorabeautyjgs.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">💄</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Aurora Beauty</h3>
+          <p>Salão de beleza com agendamento de serviços e portfólio</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://doutorrafaelmonteiro.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">👨‍⚕️</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Dr. Rafael Monteiro</h3>
+          <p>Dermatologia com informações de especialidades e agendamento</p>
+        </div>
+      </article>
+    </a>
+
+    <a href="https://cl-nica-v-rtice.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <article class="portfolio-card">
+        <div class="portfolio-image">
+          <span class="portfolio-emoji">🦷</span>
+          <span class="portfolio-cta">Acessar site</span>
+        </div>
+        <div class="portfolio-content">
+          <h3>Clínica Vértice</h3>
+          <p>Clínica odontológica com agenda online e informações de procedimentos</p>
+        </div>
+      </article>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================
+     QUEM SOMOS
+     ============================================ -->
+<section id="quem-somos" class="about container">
+  <h2>Quem Somos</h2>
+  <div class="about-content">
+    <p>A Veyroni é uma agência especializada em criar sites profissionais para pequenas empresas que desejam ser mais vistas e atrair mais clientes. Acreditamos que todo negócio merece uma presença digital de qualidade, independente do tamanho.</p>
+
+    <p>Fundada em 2026 em Jaraguá do Sul, surgimos com uma missão clara: inovar o comércio da nossa região. Sabemos que muitos donos de negócio enfrentam dificuldades para ter uma presença online profissional. Por isso, criamos soluções simples, acessíveis e eficazes que transformam ideias em sites que vendem.</p>
+
+    <p>Você foca no seu negócio, a gente cuida do site. É assim que trabalhamos.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     COMO FUNCIONA
+     ============================================ -->
+<section id="como-funciona" class="how-it-works container">
+  <h2>Como funciona</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div>
+        <h3>Conversa</h3>
+        <p>A gente entende seu negócio pelo WhatsApp</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div>
+        <h3>Criamos</h3>
+        <p>Desenvolvemos um site profissional e responsivo</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div>
+        <h3>Publicamos</h3>
+        <p>Seu site fica online, pronto para vender</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <div>
+        <h3>Cuidamos</h3>
+        <p>Você não se preocupa, a gente mantém tudo funcionando</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTATO
+     ============================================ -->
+<section id="contato" class="contact container">
+  <h2>Bora conversar?</h2>
+  <p>Manda uma mensagem que a gente responde rapidinho</p>
+
+  <div class="contact-info">
+    <div class="contact-item">
+      <span>📱</span>
+      <a href="https://wa.me/5547996419450" target="_blank" rel="noopener noreferrer">
+        (47) 99641-9450
+      </a>
+    </div>
+    <div class="contact-item">
+      <span>📸</span>
+      <a href="https://instagram.com/veyroni.co" target="_blank" rel="noopener noreferrer">
+        @veyroni.co
+      </a>
+    </div>
+  </div>
+
+  <button class="btn-primary" id="contact-cta" data-evento="cta-contato">
+    Chamar no WhatsApp
+  </button>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer role="contentinfo">
+  <div class="footer-links">
+    <a href="#quem-somos">Quem somos</a>
+    <a href="#por-que-site">Por que ter site</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="https://instagram.com/veyroni.co" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+  <p>© 2026 Veyroni. Criando sites que vendem.</p>
+</footer>
+
+<!-- ============================================
+     SCRIPT
+     ============================================ -->
+<script>
+// TODO ANTES DE PUBLICAR:
+// [ ] Substituir [Screenshot] por imagens reais dos portfolios
+// [ ] Substituir [Mockup mobile] por mockup real
+// [ ] Testar links WhatsApp e Instagram em mobile
+// [ ] Testar em 360px+
+// [ ] Adicionar GA4 quando tiver
+
+const CONFIG = {
+  whatsapp: "5547996419450",
+  instagram: "https://instagram.com/veyroni.co",
+};
+
+// WhatsApp click handlers
+document.querySelectorAll('[id$="-cta"]').forEach(button => {
+  button.addEventListener('click', function() {
+    const evento = this.getAttribute('data-evento');
+    window.open(
+      `https://wa.me/${CONFIG.whatsapp}?text=Oi%20Veyroni%2C%20quero%20saber%20mais%20sobre%20um%20site`,
+      '_blank'
+    );
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
