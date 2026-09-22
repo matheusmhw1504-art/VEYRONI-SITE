@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Veyroni logo">
+  <rect width="512" height="512" fill="#050505"/>
+  <path d="M118 88 L206 88 L274 266 L335 88 L394 88 L286 426 L224 426 Z" fill="#f3efe8"/>
+  <path d="M82 346 Q191 498 422 330" fill="none" stroke="#d4af37" stroke-width="28" stroke-linecap="round"/>
+</svg>
