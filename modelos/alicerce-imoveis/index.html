@@ -1,0 +1,2011 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Imobiliária de bairro em Uberlândia: compra, locação e administração de imóveis residenciais, comerciais e terrenos. CRECI ativo desde 2004.">
+<title>Alicerce Imóveis</title>
+<link rel="alternate" hreflang="en" href="/en/">
+<link rel="alternate" hreflang="pt-BR" href="/">
+
+<!--
+  ============================================================
+  ALICERCE IMÓVEIS — site-modelo (veyroni.co)
+  Negócio fictício. Card, página do imóvel e opções de filtro são GERADOS
+  a partir do array IMOVEIS, no topo do <script> final. Para um cliente novo:
+  1. Objeto ALICERCE — WhatsApp, telefone, CRECI, endereço, Instagram.
+  2. Array IMOVEIS — um objeto por imóvel. É o único lugar com dado de imóvel.
+  3. TIPOS e FAIXAS — rótulos dos tipos e as faixas de valor.
+  4. Ilustrações <symbol id="il-*"> — trocar por fotos reais quando o cliente tiver.
+  5. Embed real do Google Maps em #mapa.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap">
+
+<style>
+/* ---------- tokens ---------- */
+:root{
+  color-scheme:light;
+  --ground:#F7F1E4;
+  --surface:#FFFCF5;
+  --surface-2:#F0E7D3;
+  --line:#E2D6BB;
+  --line-forte:#C9B88F;
+  --ink:#1F1810;
+  --ink-2:#4A3F30;
+  --muted:#70634D;
+  --ouro:#B08B34;
+  --ouro-claro:#D9B45F;
+  --accent:#7E5F18;
+  --accent-2:#5E4610;
+  --btn-bg:#B08B34;
+  --btn-ink:#1F1810;
+  --btn-bg-hover:#96751F;
+  --venda:#6E5214;      --venda-bg:#EFE0BA;
+  --aluguel:#47542F;    --aluguel-bg:#E2E7D1;
+  --destaque:#F7F1E4;   --destaque-bg:#1F1810;
+  --sombra:0 1px 2px rgba(31,24,16,.06), 0 10px 28px rgba(31,24,16,.07);
+
+  /* ilustrações */
+  --il-ceu:#EFE2C4;
+  --il-ceu-2:#E6D6B2;
+  --il-massa:#E8DBBE;
+  --il-massa-2:#D6C39B;
+  --il-massa-3:#C0A97C;
+  --il-tinta:#5E4F36;
+  --il-ouro:#B08B34;
+  --il-vidro:#CFC1A0;
+  --il-vidro-2:#B4A484;
+  --il-verde:#8E9470;
+  --il-chao:#DFCFA9;
+  --il-piso:#EADCBC;
+
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --corpo:"Archivo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --r-sm:6px;
+  --r-md:12px;
+  --max:1140px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#16120B;
+    --surface:#1E1810;
+    --surface-2:#271F14;
+    --line:#382E1D;
+    --line-forte:#4D4028;
+    --ink:#F3E9D5;
+    --ink-2:#D2C4A8;
+    --muted:#9C8C6F;
+    --ouro:#D9B45F;
+    --ouro-claro:#E9CE8D;
+    --accent:#E0BC6C;
+    --accent-2:#F0D492;
+    --btn-bg:#D9B45F;
+    --btn-ink:#1B1509;
+    --btn-bg-hover:#E9CE8D;
+    --venda:#E6C67A;      --venda-bg:#3A2E13;
+    --aluguel:#C2CE9F;    --aluguel-bg:#2A3019;
+    --destaque:#1B1509;   --destaque-bg:#D9B45F;
+    --sombra:0 1px 2px rgba(0,0,0,.5), 0 10px 28px rgba(0,0,0,.35);
+
+    --il-ceu:#2A2315;
+    --il-ceu-2:#201A0F;
+    --il-massa:#3B3120;
+    --il-massa-2:#2E2617;
+    --il-massa-3:#241D11;
+    --il-tinta:#C9B994;
+    --il-ouro:#D9B45F;
+    --il-vidro:#4A4029;
+    --il-vidro-2:#5C5034;
+    --il-verde:#5E6547;
+    --il-chao:#2C2416;
+    --il-piso:#38301E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#16120B;
+  --surface:#1E1810;
+  --surface-2:#271F14;
+  --line:#382E1D;
+  --line-forte:#4D4028;
+  --ink:#F3E9D5;
+  --ink-2:#D2C4A8;
+  --muted:#9C8C6F;
+  --ouro:#D9B45F;
+  --ouro-claro:#E9CE8D;
+  --accent:#E0BC6C;
+  --accent-2:#F0D492;
+  --btn-bg:#D9B45F;
+  --btn-ink:#1B1509;
+  --btn-bg-hover:#E9CE8D;
+  --venda:#E6C67A;      --venda-bg:#3A2E13;
+  --aluguel:#C2CE9F;    --aluguel-bg:#2A3019;
+  --destaque:#1B1509;   --destaque-bg:#D9B45F;
+  --sombra:0 1px 2px rgba(0,0,0,.5), 0 10px 28px rgba(0,0,0,.35);
+
+  --il-ceu:#2A2315;
+  --il-ceu-2:#201A0F;
+  --il-massa:#3B3120;
+  --il-massa-2:#2E2617;
+  --il-massa-3:#241D11;
+  --il-tinta:#C9B994;
+  --il-ouro:#D9B45F;
+  --il-vidro:#4A4029;
+  --il-vidro-2:#5C5034;
+  --il-verde:#5E6547;
+  --il-chao:#2C2416;
+  --il-piso:#38301E;
+}
+
+/* ---------- base ---------- */
+/* Sem isto, o atributo hidden perde para qualquer .classe{display:...} daqui
+   de baixo — e filtro, rota e zoom param de esconder o que deviam. */
+[hidden]{display:none !important}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--corpo);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.14;text-wrap:balance;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+img,svg{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.visually-hidden{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+.secao{padding-block:clamp(48px,7vw,84px)}
+.rotulo{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.secao-topo{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+.secao-titulo{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+.sub{color:var(--ink-2);max-width:62ch}
+
+/* ---------- botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--corpo);font-size:.95rem;font-weight:600;
+  padding:13px 22px;border-radius:var(--r-sm);border:1px solid transparent;
+  background:var(--btn-bg);color:var(--btn-ink);text-decoration:none;cursor:pointer;
+  min-height:46px;transition:background .18s ease, transform .18s ease;
+}
+.btn:hover{background:var(--btn-bg-hover)}
+.btn:active{transform:translateY(1px)}
+.btn--sm{padding:9px 15px;font-size:.87rem;min-height:40px}
+
+/* ---------- header ---------- */
+.topo{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.topo-in{display:flex;align-items:center;gap:20px;min-height:68px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);margin-right:auto}
+.marca-sinal{width:38px;height:38px;flex:none;display:block}
+.marca-nome{font-family:var(--display);font-size:1.2rem;font-weight:700;letter-spacing:.01em;line-height:1;display:block}
+.marca-creci{display:block;font-family:var(--corpo);font-size:.63rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:22px}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:.92rem;font-weight:500}
+.nav a:hover{color:var(--accent)}
+@media (max-width:900px){.nav{display:none}}
+@media (max-width:560px){.topo .btn{display:none}}
+.lang-link{display:inline-flex;align-items:center;justify-content:center;min-height:36px;min-width:40px;padding:0 10px;border:1px solid var(--line-forte);border-radius:999px;color:var(--ink-2);text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.08em}
+.lang-link:hover{border-color:var(--ouro);color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{border-bottom:1px solid var(--line);padding-block:clamp(40px,6vw,68px)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,58px);align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(1.8rem,3.9vw,2.6rem);letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .sub{margin-top:18px;font-size:1.05rem}
+
+/* busca principal */
+.busca{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.busca-campo{position:relative;flex:1 1 240px;min-width:0}
+.busca input{
+  font-family:var(--corpo);font-size:1rem;color:var(--ink);width:100%;
+  background:var(--surface);border:1px solid var(--line-forte);border-radius:var(--r-sm);
+  padding:14px 14px 14px 42px;min-height:50px;
+}
+.busca input::placeholder{color:var(--muted)}
+.busca-lupa{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none}
+.busca-dica{font-size:.82rem;color:var(--muted);margin-top:9px;flex-basis:100%}
+
+.atalhos{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.atalho{
+  display:inline-flex;align-items:center;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line-forte);background:var(--surface);color:var(--ink);
+  text-decoration:none;font-size:.88rem;font-weight:500;min-height:40px;
+}
+.atalho:hover{border-color:var(--ouro);color:var(--accent)}
+
+/* ---------- ilustrações ---------- */
+.ilustra{display:block;width:100%;height:auto;border-radius:var(--r-sm);background:var(--il-ceu)}
+img.ilustra{object-fit:cover;height:100%}
+.ilustra--hero{aspect-ratio:4/3;border:1px solid var(--line)}
+.ilustra--card{aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--line)}
+.ilustra--sobre{aspect-ratio:5/4;border:1px solid var(--line)}
+
+/* ---------- faixa ---------- */
+.faixa{border-bottom:1px solid var(--line);background:var(--surface-2)}
+.faixa-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+@media (max-width:760px){.faixa-in{grid-template-columns:repeat(2,1fr)}}
+.faixa-item{background:var(--surface-2);padding:20px 18px}
+.faixa-num{font-family:var(--display);font-size:1.7rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.faixa-txt{font-size:.83rem;color:var(--muted);margin-top:6px}
+
+/* ---------- filtros ---------- */
+.filtros{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;margin-bottom:22px}
+.filtros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+.campo--busca{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+/* .busca-campo vem do hero com flex:1 1 240px; aqui o pai é coluna,
+   onde flex-basis vira ALTURA — daí o campo esticar 240px */
+.campo--busca .busca-campo{flex:none;width:100%}
+.campo--busca input{
+  font-family:var(--corpo);font-size:1rem;color:var(--ink);width:100%;
+  background:var(--ground);border:1px solid var(--line-forte);border-radius:var(--r-sm);
+  padding:12px 12px 12px 40px;min-height:46px;
+}
+.campo--busca input::placeholder{color:var(--muted)}
+.campo--busca .busca-lupa{left:13px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo label{font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.campo select{
+  font-family:var(--corpo);font-size:.94rem;color:var(--ink);
+  background:var(--ground);border:1px solid var(--line-forte);border-radius:var(--r-sm);
+  padding:11px;width:100%;min-height:44px;
+}
+.filtros-rodape{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:16px}
+.contador{font-size:.9rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.contador b{color:var(--ink)}
+.limpar{
+  background:none;border:0;padding:6px;cursor:pointer;font-family:var(--corpo);
+  font-size:.88rem;font-weight:600;color:var(--accent);
+  text-decoration:underline;text-underline-offset:3px;
+}
+
+/* chips de filtro aplicado */
+.aplicados{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
+.aplicados-rot{font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chip-filtro{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--surface-2);border:1px solid var(--line-forte);border-radius:999px;
+  padding:6px 8px 6px 13px;font-size:.85rem;font-weight:500;color:var(--ink);
+  font-family:var(--corpo);cursor:pointer;min-height:36px;
+}
+.chip-filtro:hover{border-color:var(--ouro);color:var(--accent)}
+.chip-filtro span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;border-radius:50%;background:var(--line);
+  font-size:.8rem;line-height:1;color:var(--ink-2);
+}
+
+/* ---------- grade ---------- */
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sombra)}
+.card-chips{position:absolute;top:12px;left:12px;display:flex;gap:7px;flex-wrap:wrap}
+.chip{font-size:.69rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:5px 9px;border-radius:3px}
+.chip--venda{background:var(--venda-bg);color:var(--venda)}
+.chip--aluguel{background:var(--aluguel-bg);color:var(--aluguel)}
+.chip--destaque{background:var(--destaque-bg);color:var(--destaque)}
+.card-corpo{padding:18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card-tipo{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card-titulo{font-size:1.13rem;font-weight:600;line-height:1.28}
+.card-preco{font-family:var(--corpo);font-size:1.32rem;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.card-preco span{font-size:.85rem;font-weight:500;color:var(--muted)}
+.card-taxas{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.specs{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.87rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.specs li{display:flex;align-items:center}
+.specs li + li::before{content:"";width:3px;height:3px;border-radius:50%;background:var(--line-forte);margin-right:14px}
+.card-rodape{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.codigo{font-size:.76rem;font-weight:700;letter-spacing:.09em;color:var(--accent);font-variant-numeric:tabular-nums}
+.vazio{border:1px dashed var(--line-forte);border-radius:var(--r-md);padding:38px 24px;text-align:center;color:var(--ink-2)}
+
+/* ---------- serviços ---------- */
+.servicos{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-block:1px solid var(--line)}
+@media (max-width:820px){.servicos{grid-template-columns:1fr}}
+.servico{background:var(--ground);padding:28px 24px 30px}
+.servico h3{font-size:1.25rem;margin-bottom:10px}
+.servico p{color:var(--ink-2);font-size:.95rem}
+.servico ul{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.servico li{position:relative;padding-left:20px;font-size:.92rem;color:var(--ink-2)}
+.servico li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--ouro)}
+
+/* ---------- passos ---------- */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media (max-width:820px){.passos{grid-template-columns:1fr}}
+.passo{border-top:2px solid var(--ouro);padding-top:16px}
+.passo-num{font-family:var(--display);font-size:.88rem;font-weight:700;color:var(--accent);letter-spacing:.06em;display:block;margin-bottom:6px}
+.passo h3{font-size:1.1rem;margin-bottom:8px}
+.passo p{color:var(--ink-2);font-size:.94rem}
+
+/* ---------- sobre ---------- */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,56px);align-items:center}
+@media (max-width:820px){.sobre-grid{grid-template-columns:1fr}}
+.sobre-texto p + p{margin-top:14px}
+.sobre-texto p{color:var(--ink-2)}
+.assinatura{margin-top:20px;font-size:.88rem;color:var(--muted)}
+.assinatura b{color:var(--ink);font-weight:600}
+
+/* ---------- faq ---------- */
+.faq{max-width:76ch}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;font-weight:600;font-size:1.02rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;
+  border-right:2px solid var(--ouro);border-bottom:2px solid var(--ouro);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .resposta{padding:0 0 20px;color:var(--ink-2);max-width:66ch}
+
+/* ---------- contato ---------- */
+.contato{background:var(--surface-2);border-top:1px solid var(--line)}
+.contato-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(26px,5vw,52px);align-items:start}
+@media (max-width:820px){.contato-grid{grid-template-columns:1fr}}
+.dados{display:flex;flex-direction:column;gap:18px;margin-top:22px}
+.dado-rot{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.dado p,.dado a{font-size:1rem;color:var(--ink);text-decoration:none}
+.dado a:hover{color:var(--accent);text-decoration:underline}
+.mapa{
+  aspect-ratio:16/11;width:100%;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:repeating-linear-gradient(135deg,transparent 0 11px,color-mix(in srgb,var(--line) 60%,transparent) 11px 12px),var(--surface);
+  display:flex;align-items:flex-end;padding:12px;
+}
+.mapa span{font-size:.72rem;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:5px 8px}
+
+/* ---------- rodapé ---------- */
+.rodape{border-top:1px solid var(--line);padding-block:26px;font-size:.85rem;color:var(--muted)}
+.rodape-in{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+.rodape a{color:var(--muted)}
+
+/* ---------- whatsapp flutuante ---------- */
+.flutuante{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;
+  display:none;align-items:center;padding:14px 20px;border-radius:999px;
+  background:var(--btn-bg);color:var(--btn-ink);font-weight:600;font-size:.94rem;
+  text-decoration:none;box-shadow:0 6px 20px rgba(31,24,16,.3);min-height:48px;
+}
+@media (max-width:640px){.flutuante{display:inline-flex}}
+
+/* ---------- foto clicável do card ---------- */
+.card-foto{position:relative;display:block;text-decoration:none;color:inherit;overflow:hidden}
+.card-foto .ilustra{transition:transform .25s ease}
+.card-foto:hover .ilustra{transform:scale(1.04)}
+.ver-mais{
+  position:absolute;right:12px;bottom:12px;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-forte);
+  border-radius:999px;padding:6px 13px;font-size:.79rem;font-weight:600;
+}
+.card-foto:hover .ver-mais{background:var(--btn-bg);color:var(--btn-ink);border-color:transparent}
+.card-titulo a{color:inherit;text-decoration:none}
+.card-titulo a:hover{color:var(--accent);text-decoration:underline}
+
+/* ---------- botão filtrar ---------- */
+.filtros-acoes{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-filtrar{position:relative}
+.btn-filtrar.is-pendente::after{
+  content:"";position:absolute;top:-5px;right:-5px;width:12px;height:12px;
+  border-radius:50%;background:var(--ink);border:2px solid var(--surface);
+}
+.aviso-pendente{font-size:.83rem;color:var(--accent);font-weight:500}
+
+/* ---------- página do imóvel ---------- */
+.detalhe{padding-block:clamp(28px,4vw,44px) clamp(48px,7vw,80px);scroll-margin-top:90px}
+.detalhe:focus{outline:none}
+.voltar{
+  display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;
+  color:var(--accent);text-decoration:none;margin-bottom:22px;min-height:40px;
+}
+.voltar:hover{text-decoration:underline}
+.detalhe-cabeca{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+.detalhe h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-top:6px}
+.detalhe-preco{font-size:1.9rem;font-weight:700;letter-spacing:-.015em;font-variant-numeric:tabular-nums;line-height:1.1}
+.detalhe-preco span{display:block;font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:5px}
+
+.galeria{display:grid;grid-template-columns:repeat(var(--colunas,3),1fr);gap:10px;margin-bottom:30px}
+@media (max-width:560px){.galeria{grid-template-columns:repeat(2,1fr)}}
+.galeria .ilustra{aspect-ratio:4/3;border:1px solid var(--line)}
+.galeria > :first-child{grid-column:1 / -1}
+.galeria > :first-child .ilustra{aspect-ratio:16/9}
+
+.detalhe-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(26px,4vw,48px);align-items:start}
+@media (max-width:860px){.detalhe-grid{grid-template-columns:1fr}}
+.detalhe-texto h3{font-size:1.2rem;margin-bottom:12px}
+.detalhe-texto h3 + p, .detalhe-texto p + p{margin-top:0}
+.detalhe-texto p{color:var(--ink-2)}
+.detalhe-texto p + p{margin-top:13px}
+.detalhe-texto > * + h3{margin-top:30px}
+.perto{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px}
+@media (max-width:560px){.perto{grid-template-columns:1fr}}
+.perto li{position:relative;padding-left:22px;font-size:.93rem;color:var(--ink-2)}
+.perto li::before{
+  content:"";position:absolute;left:0;top:.52em;width:9px;height:9px;
+  border-radius:50%;border:2px solid var(--ouro);
+}
+.perto b{color:var(--ink);font-weight:600}
+
+.ficha{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--sombra)}
+.ficha h3{font-size:1.05rem;margin-bottom:14px}
+.ficha dl{margin:0;display:flex;flex-direction:column}
+.ficha div{display:flex;gap:14px;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+.ficha dt{font-size:.87rem;color:var(--muted);flex:none}
+.ficha dd{margin:0;font-size:.9rem;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.ficha .btn{width:100%;margin-top:18px}
+.ficha-nota{font-size:.79rem;color:var(--muted);margin-top:12px;text-align:center}
+
+.semelhantes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
+.semelhante{
+  display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px;
+}
+.semelhante:hover{border-color:var(--ouro)}
+.semelhante em{font-style:normal;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.semelhante strong{font-family:var(--display);font-size:1rem;font-weight:600;line-height:1.3}
+.semelhante span{font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent)}
+.detalhe-fim{margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+
+.aviso-js{
+  border:1px solid var(--line-forte);border-radius:var(--r-md);
+  background:var(--surface);padding:24px;color:var(--ink-2);
+}
+.aviso-js p + p{margin-top:8px}
+
+/* ---------- zoom da foto ---------- */
+.galeria figure{cursor:zoom-in;position:relative}
+.galeria figure .ilustra{transition:opacity .18s ease}
+.galeria figure:hover .ilustra{opacity:.88}
+.galeria figure:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.zoom{
+  position:fixed;inset:0;z-index:100;
+  background:color-mix(in srgb, var(--ink) 93%, transparent);
+  display:flex;align-items:center;justify-content:center;
+  padding:calc(58px + env(safe-area-inset-top,0px)) clamp(12px,5vw,84px) calc(58px + env(safe-area-inset-bottom,0px));
+  animation:zoom-entra .18s ease-out;
+}
+@keyframes zoom-entra{from{opacity:0}to{opacity:1}}
+.zoom-palco{display:flex;align-items:center;justify-content:center;max-width:1200px;width:100%;height:100%}
+.zoom-midia{
+  max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;display:block;border-radius:var(--r-sm);
+  background:var(--il-ceu);box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+.zoom-btn{
+  position:absolute;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-forte);
+  border-radius:999px;cursor:pointer;font-family:var(--corpo);line-height:1;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.zoom-btn:hover{background:var(--btn-bg);color:var(--btn-ink);border-color:transparent}
+.zoom-fechar{top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:46px;height:46px;font-size:1.6rem;padding-bottom:4px}
+.zoom-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:2rem;padding-bottom:6px}
+.zoom-ant{left:10px}
+.zoom-prox{right:10px}
+.zoom-contador{
+  position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-forte);
+  border-radius:999px;padding:7px 16px;font-size:.85rem;font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+@media (max-width:560px){
+  .zoom{padding-inline:8px}
+  .zoom-nav{width:44px;height:44px;font-size:1.7rem}
+  .zoom-ant{left:4px}
+  .zoom-prox{right:4px}
+}
+
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+
+<!-- ============ ilustrações (sprite) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+
+  <symbol id="il-rua" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <circle cx="322" cy="56" r="30" fill="var(--il-ouro)" opacity=".3"/>
+    <rect y="196" width="400" height="104" fill="var(--il-chao)"/>
+    <polygon points="0,300 400,300 400,246 0,272" fill="var(--il-massa-3)" opacity=".5"/>
+    <polygon points="18,196 78,150 138,196" fill="var(--il-massa-3)"/>
+    <rect x="28" y="196" width="100" height="62" fill="var(--il-massa)"/>
+    <rect x="46" y="212" width="24" height="24" fill="var(--il-vidro)"/>
+    <rect x="88" y="212" width="24" height="24" fill="var(--il-vidro)"/>
+    <rect x="62" y="240" width="26" height="18" fill="var(--il-ouro)"/>
+    <polygon points="146,196 212,142 278,196" fill="var(--il-massa-2)"/>
+    <rect x="158" y="196" width="108" height="68" fill="var(--il-massa)"/>
+    <rect x="176" y="210" width="28" height="28" fill="var(--il-vidro)"/>
+    <rect x="222" y="210" width="28" height="28" fill="var(--il-vidro)"/>
+    <rect x="196" y="242" width="30" height="22" fill="var(--il-ouro)"/>
+    <polygon points="286,196 336,158 386,196" fill="var(--il-massa-3)"/>
+    <rect x="294" y="196" width="84" height="58" fill="var(--il-massa-2)"/>
+    <rect x="310" y="210" width="22" height="22" fill="var(--il-vidro-2)"/>
+    <rect x="344" y="210" width="22" height="22" fill="var(--il-vidro-2)"/>
+    <rect x="136" y="214" width="7" height="50" fill="var(--il-tinta)"/>
+    <circle cx="139" cy="200" r="24" fill="var(--il-verde)"/>
+    <rect x="278" y="220" width="6" height="44" fill="var(--il-tinta)"/>
+    <circle cx="281" cy="208" r="19" fill="var(--il-verde)" opacity=".9"/>
+    <rect y="268" width="400" height="3" fill="var(--il-massa-3)" opacity=".7"/>
+  </symbol>
+
+  <symbol id="il-sala" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-massa)"/>
+    <rect y="214" width="400" height="86" fill="var(--il-piso)"/>
+    <rect y="210" width="400" height="5" fill="var(--il-massa-2)"/>
+    <rect x="224" y="44" width="140" height="148" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="3"/>
+    <path d="M294 44v148M224 118h140" stroke="var(--il-tinta)" stroke-width="3"/>
+    <polygon points="224,192 364,192 332,262 154,262" fill="var(--il-ouro)" opacity=".15"/>
+    <ellipse cx="166" cy="250" rx="126" ry="24" fill="var(--il-massa-2)" opacity=".55"/>
+    <rect x="42" y="150" width="150" height="40" rx="8" fill="var(--il-massa-3)"/>
+    <rect x="36" y="182" width="162" height="42" rx="9" fill="var(--il-massa-2)"/>
+    <rect x="36" y="180" width="18" height="44" rx="8" fill="var(--il-massa-3)"/>
+    <rect x="180" y="180" width="18" height="44" rx="8" fill="var(--il-massa-3)"/>
+    <rect x="62" y="155" width="30" height="28" rx="5" fill="var(--il-ouro)" opacity=".75"/>
+    <rect x="46" y="222" width="7" height="14" fill="var(--il-tinta)"/>
+    <rect x="181" y="222" width="7" height="14" fill="var(--il-tinta)"/>
+    <rect x="206" y="196" width="48" height="6" fill="var(--il-tinta)"/>
+    <rect x="227" y="202" width="6" height="36" fill="var(--il-tinta)"/>
+    <ellipse cx="230" cy="176" rx="26" ry="20" fill="var(--il-verde)"/>
+    <ellipse cx="212" cy="187" rx="15" ry="11" fill="var(--il-verde)" opacity=".8"/>
+    <rect x="70" y="64" width="72" height="56" fill="var(--il-vidro-2)" stroke="var(--il-ouro)" stroke-width="3"/>
+  </symbol>
+
+  <symbol id="il-casa" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <circle cx="328" cy="54" r="26" fill="var(--il-ouro)" opacity=".28"/>
+    <rect y="236" width="400" height="64" fill="var(--il-chao)"/>
+    <polygon points="60,142 200,62 340,142" fill="var(--il-massa-3)"/>
+    <polygon points="80,142 200,74 320,142" fill="var(--il-massa-2)"/>
+    <rect x="86" y="142" width="228" height="96" fill="var(--il-massa)"/>
+    <rect x="100" y="176" width="86" height="62" fill="var(--il-vidro-2)"/>
+    <path d="M100 192h86M100 208h86M100 224h86" stroke="var(--il-massa)" stroke-width="2"/>
+    <rect x="246" y="168" width="36" height="70" fill="var(--il-ouro)"/>
+    <circle cx="274" cy="204" r="3" fill="var(--il-tinta)"/>
+    <rect x="200" y="166" width="34" height="34" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="2"/>
+    <path d="M217 166v34M200 183h34" stroke="var(--il-tinta)" stroke-width="2"/>
+    <rect x="36" y="230" width="324" height="8" fill="var(--il-massa-3)"/>
+    <rect x="352" y="192" width="8" height="46" fill="var(--il-tinta)"/>
+    <circle cx="356" cy="182" r="30" fill="var(--il-verde)"/>
+    <circle cx="334" cy="197" r="19" fill="var(--il-verde)" opacity=".85"/>
+    <rect y="262" width="400" height="3" fill="var(--il-massa-3)" opacity=".6"/>
+  </symbol>
+
+  <symbol id="il-predio" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <rect y="252" width="400" height="48" fill="var(--il-chao)"/>
+    <rect x="22" y="112" width="74" height="140" fill="var(--il-massa-3)" opacity=".7"/>
+    <rect x="304" y="132" width="74" height="120" fill="var(--il-massa-3)" opacity=".7"/>
+    <rect x="104" y="40" width="192" height="212" fill="var(--il-massa)"/>
+    <rect x="104" y="40" width="192" height="14" fill="var(--il-massa-2)"/>
+    <g fill="var(--il-vidro)">
+      <rect x="120" y="68" width="48" height="34"/><rect x="176" y="68" width="48" height="34"/><rect x="232" y="68" width="48" height="34"/>
+      <rect x="120" y="116" width="48" height="34"/><rect x="176" y="116" width="48" height="34"/><rect x="232" y="116" width="48" height="34"/>
+      <rect x="120" y="164" width="48" height="34"/><rect x="176" y="164" width="48" height="34"/><rect x="232" y="164" width="48" height="34"/>
+    </g>
+    <g fill="var(--il-ouro)" opacity=".75">
+      <rect x="120" y="100" width="48" height="5"/><rect x="176" y="100" width="48" height="5"/><rect x="232" y="100" width="48" height="5"/>
+      <rect x="120" y="148" width="48" height="5"/><rect x="176" y="148" width="48" height="5"/><rect x="232" y="148" width="48" height="5"/>
+      <rect x="120" y="196" width="48" height="5"/><rect x="176" y="196" width="48" height="5"/><rect x="232" y="196" width="48" height="5"/>
+    </g>
+    <rect x="164" y="214" width="72" height="38" fill="var(--il-vidro-2)"/>
+    <rect x="156" y="206" width="88" height="8" fill="var(--il-ouro)"/>
+    <rect x="196" y="214" width="3" height="38" fill="var(--il-massa)"/>
+    <rect x="68" y="222" width="7" height="30" fill="var(--il-tinta)"/>
+    <circle cx="71" cy="212" r="20" fill="var(--il-verde)"/>
+    <rect x="330" y="228" width="6" height="24" fill="var(--il-tinta)"/>
+    <circle cx="333" cy="220" r="16" fill="var(--il-verde)" opacity=".85"/>
+  </symbol>
+
+  <symbol id="il-comercial" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <rect y="244" width="400" height="56" fill="var(--il-chao)"/>
+    <polygon points="248,74 380,102 380,244 248,244" fill="var(--il-massa-2)"/>
+    <rect x="52" y="74" width="196" height="170" fill="var(--il-massa)"/>
+    <rect x="52" y="74" width="196" height="16" fill="var(--il-massa-3)"/>
+    <rect x="70" y="118" width="160" height="88" fill="var(--il-vidro)"/>
+    <path d="M124 118v88M178 118v88M70 162h160" stroke="var(--il-massa)" stroke-width="3"/>
+    <polygon points="60,110 240,110 228,134 72,134" fill="var(--il-ouro)"/>
+    <rect x="90" y="206" width="52" height="38" fill="var(--il-vidro-2)"/>
+    <rect x="270" y="126" width="36" height="76" fill="var(--il-vidro-2)"/>
+    <rect x="322" y="134" width="36" height="68" fill="var(--il-vidro-2)"/>
+    <rect x="96" y="96" width="108" height="7" fill="var(--il-tinta)" opacity=".5"/>
+    <rect x="266" y="222" width="34" height="22" fill="var(--il-verde)"/>
+    <rect y="270" width="400" height="3" fill="var(--il-massa-3)" opacity=".6"/>
+  </symbol>
+
+  <symbol id="il-terreno" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <rect y="150" width="400" height="150" fill="var(--il-chao)"/>
+    <g fill="var(--il-massa-3)" opacity=".55">
+      <polygon points="0,150 30,126 60,150"/><rect x="8" y="150" width="44" height="22"/>
+      <polygon points="330,150 360,124 390,150"/><rect x="338" y="150" width="44" height="22"/>
+    </g>
+    <polygon points="74,196 326,196 388,282 12,282" fill="var(--il-massa-2)" opacity=".5"/>
+    <polygon points="74,196 326,196 388,282 12,282" fill="none" stroke="var(--il-ouro)" stroke-width="4" stroke-dasharray="12 9"/>
+    <g fill="var(--il-tinta)">
+      <rect x="70" y="180" width="6" height="22"/><rect x="322" y="180" width="6" height="22"/>
+      <rect x="6" y="266" width="6" height="26"/><rect x="386" y="266" width="6" height="26"/>
+    </g>
+    <g fill="var(--il-verde)" opacity=".8">
+      <ellipse cx="120" cy="240" rx="16" ry="6"/><ellipse cx="250" cy="228" rx="14" ry="5"/><ellipse cx="190" cy="262" rx="19" ry="7"/>
+    </g>
+    <rect y="286" width="400" height="14" fill="var(--il-massa-3)" opacity=".6"/>
+    <circle cx="70" cy="58" r="24" fill="var(--il-ouro)" opacity=".3"/>
+  </symbol>
+
+  <symbol id="il-casa2" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <rect y="240" width="400" height="60" fill="var(--il-chao)"/>
+    <polygon points="72,132 200,96 328,132" fill="var(--il-massa-3)"/>
+    <rect x="96" y="132" width="208" height="110" fill="var(--il-massa)"/>
+    <rect x="96" y="132" width="208" height="9" fill="var(--il-massa-2)"/>
+    <rect x="120" y="164" width="62" height="42" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="2"/>
+    <path d="M151 164v42" stroke="var(--il-tinta)" stroke-width="2"/>
+    <rect x="240" y="166" width="36" height="76" fill="var(--il-ouro)"/>
+    <circle cx="268" cy="206" r="3" fill="var(--il-tinta)"/>
+    <rect x="76" y="132" width="10" height="110" fill="var(--il-massa-2)"/>
+    <polygon points="20,150 96,132 96,142 20,160" fill="var(--il-massa-3)"/>
+    <rect x="22" y="158" width="7" height="84" fill="var(--il-tinta)"/>
+    <rect x="46" y="222" width="240" height="6" fill="var(--il-massa-3)" opacity=".7"/>
+    <rect x="336" y="206" width="7" height="36" fill="var(--il-tinta)"/>
+    <circle cx="339" cy="196" r="23" fill="var(--il-verde)"/>
+    <rect y="266" width="400" height="3" fill="var(--il-massa-3)" opacity=".6"/>
+  </symbol>
+
+  <symbol id="il-varanda" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu-2)"/>
+    <rect y="66" width="400" height="120" fill="var(--il-ceu)"/>
+    <circle cx="300" cy="96" r="22" fill="var(--il-ouro)" opacity=".35"/>
+    <g fill="var(--il-vidro-2)" opacity=".85">
+      <rect x="20" y="118" width="34" height="68"/><rect x="64" y="96" width="26" height="90"/>
+      <rect x="100" y="132" width="40" height="54"/><rect x="152" y="104" width="30" height="82"/>
+      <rect x="194" y="140" width="46" height="46"/><rect x="250" y="112" width="28" height="74"/>
+      <rect x="290" y="134" width="38" height="52"/><rect x="340" y="118" width="32" height="68"/>
+    </g>
+    <rect y="186" width="400" height="114" fill="var(--il-piso)"/>
+    <path d="M0 186 L400 186 M40 300 L96 186 M150 300 L176 186 M260 300 L250 186 M380 300 L330 186" stroke="var(--il-massa-2)" stroke-width="3" fill="none"/>
+    <rect y="150" width="400" height="44" fill="var(--il-vidro)" opacity=".55"/>
+    <rect y="144" width="400" height="8" fill="var(--il-ouro)"/>
+    <rect y="190" width="400" height="6" fill="var(--il-massa-3)"/>
+    <rect x="0" y="0" width="34" height="300" fill="var(--il-massa)"/>
+    <rect x="366" y="0" width="34" height="300" fill="var(--il-massa)"/>
+    <rect x="0" y="0" width="400" height="30" fill="var(--il-massa)"/>
+    <rect x="286" y="212" width="8" height="46" fill="var(--il-tinta)"/>
+    <rect x="270" y="256" width="40" height="26" fill="var(--il-massa-3)"/>
+    <ellipse cx="290" cy="204" rx="28" ry="22" fill="var(--il-verde)"/>
+    <rect x="62" y="232" width="74" height="7" fill="var(--il-tinta)"/>
+    <rect x="72" y="239" width="6" height="34" fill="var(--il-tinta)"/>
+    <rect x="120" y="239" width="6" height="34" fill="var(--il-tinta)"/>
+  </symbol>
+
+  <symbol id="il-barracao" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <rect y="238" width="400" height="62" fill="var(--il-chao)"/>
+    <polygon points="30,106 200,64 370,106" fill="var(--il-massa-3)"/>
+    <rect x="42" y="106" width="316" height="132" fill="var(--il-massa)"/>
+    <g stroke="var(--il-massa-2)" stroke-width="3">
+      <path d="M62 106v132M82 106v132M102 106v132M298 106v132M318 106v132M338 106v132"/>
+    </g>
+    <rect x="122" y="140" width="72" height="98" fill="var(--il-vidro-2)"/>
+    <rect x="212" y="140" width="72" height="98" fill="var(--il-vidro-2)"/>
+    <g stroke="var(--il-massa)" stroke-width="3">
+      <path d="M122 158h72M122 176h72M122 194h72M122 212h72"/>
+      <path d="M212 158h72M212 176h72M212 194h72M212 212h72"/>
+    </g>
+    <rect x="42" y="100" width="316" height="10" fill="var(--il-ouro)"/>
+    <rect x="352" y="168" width="44" height="70" fill="var(--il-massa-2)"/>
+    <rect x="362" y="182" width="24" height="22" fill="var(--il-vidro)"/>
+    <g stroke="var(--il-massa-3)" stroke-width="3" opacity=".7">
+      <path d="M100 262h200M60 280h280"/>
+    </g>
+    <rect x="12" y="196" width="6" height="42" fill="var(--il-tinta)"/>
+    <circle cx="15" cy="188" r="17" fill="var(--il-verde)"/>
+  </symbol>
+
+  <symbol id="il-studio" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-massa)"/>
+    <rect y="220" width="400" height="80" fill="var(--il-piso)"/>
+    <rect y="216" width="400" height="5" fill="var(--il-massa-2)"/>
+    <rect x="30" y="52" width="104" height="104" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="3"/>
+    <path d="M82 52v104M30 104h104" stroke="var(--il-tinta)" stroke-width="3"/>
+    <polygon points="30,156 134,156 112,224 6,224" fill="var(--il-ouro)" opacity=".14"/>
+    <rect x="28" y="176" width="126" height="48" rx="5" fill="var(--il-massa-2)"/>
+    <rect x="28" y="160" width="126" height="20" rx="5" fill="var(--il-massa-3)"/>
+    <rect x="40" y="163" width="44" height="16" rx="4" fill="var(--il-ouro)" opacity=".7"/>
+    <rect x="94" y="163" width="44" height="16" rx="4" fill="var(--il-ouro)" opacity=".5"/>
+    <rect x="32" y="224" width="7" height="12" fill="var(--il-tinta)"/>
+    <rect x="144" y="224" width="7" height="12" fill="var(--il-tinta)"/>
+    <rect x="216" y="168" width="150" height="10" fill="var(--il-tinta)"/>
+    <rect x="216" y="178" width="150" height="46" fill="var(--il-massa-2)"/>
+    <path d="M266 178v46M316 178v46" stroke="var(--il-massa-3)" stroke-width="3"/>
+    <rect x="216" y="64" width="150" height="46" fill="var(--il-massa-3)"/>
+    <rect x="244" y="126" width="34" height="34" fill="var(--il-vidro-2)"/>
+    <circle cx="330" cy="140" r="13" fill="var(--il-verde)"/>
+    <rect x="182" y="196" width="7" height="30" fill="var(--il-tinta)"/>
+    <ellipse cx="185" cy="192" rx="20" ry="8" fill="var(--il-massa-3)"/>
+  </symbol>
+
+  <symbol id="il-quarto" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-massa)"/>
+    <rect y="218" width="400" height="82" fill="var(--il-piso)"/>
+    <rect y="214" width="400" height="5" fill="var(--il-massa-2)"/>
+    <rect x="252" y="48" width="112" height="112" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="3"/>
+    <path d="M308 48v112M252 104h112" stroke="var(--il-tinta)" stroke-width="3"/>
+    <rect x="70" y="96" width="170" height="64" rx="4" fill="var(--il-massa-3)"/>
+    <rect x="58" y="158" width="194" height="60" rx="6" fill="var(--il-vidro-2)"/>
+    <rect x="58" y="152" width="194" height="14" rx="5" fill="var(--il-massa-2)"/>
+    <rect x="80" y="122" width="62" height="34" rx="5" fill="var(--il-ceu)"/>
+    <rect x="152" y="122" width="62" height="34" rx="5" fill="var(--il-ceu)"/>
+    <rect x="58" y="186" width="194" height="32" rx="4" fill="var(--il-ouro)" opacity=".45"/>
+    <rect x="62" y="218" width="7" height="14" fill="var(--il-tinta)"/>
+    <rect x="243" y="218" width="7" height="14" fill="var(--il-tinta)"/>
+    <rect x="270" y="176" width="58" height="42" fill="var(--il-massa-3)"/>
+    <rect x="270" y="170" width="58" height="8" fill="var(--il-tinta)"/>
+    <circle cx="299" cy="150" r="13" fill="var(--il-ouro)"/>
+    <rect x="8" y="112" width="34" height="106" fill="var(--il-massa-2)"/>
+    <path d="M25 112v106" stroke="var(--il-massa-3)" stroke-width="3"/>
+  </symbol>
+
+  <symbol id="il-cozinha" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-massa)"/>
+    <rect y="226" width="400" height="74" fill="var(--il-piso)"/>
+    <rect x="30" y="40" width="150" height="66" fill="var(--il-massa-3)"/>
+    <path d="M105 40v66" stroke="var(--il-massa-2)" stroke-width="3"/>
+    <rect x="44" y="96" width="36" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="130" y="96" width="36" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="256" y="46" width="110" height="98" fill="var(--il-vidro)" stroke="var(--il-tinta)" stroke-width="3"/>
+    <path d="M311 46v98" stroke="var(--il-tinta)" stroke-width="3"/>
+    <rect x="24" y="158" width="352" height="12" fill="var(--il-tinta)"/>
+    <rect x="24" y="170" width="352" height="56" fill="var(--il-massa-2)"/>
+    <path d="M118 170v56M212 170v56M306 170v56" stroke="var(--il-massa-3)" stroke-width="3"/>
+    <rect x="44" y="186" width="34" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="148" y="186" width="34" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="242" y="186" width="34" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="330" y="186" width="34" height="5" rx="2" fill="var(--il-ouro)"/>
+    <rect x="54" y="140" width="56" height="18" rx="3" fill="var(--il-vidro-2)"/>
+    <path d="M82 140v-22a10 10 0 0 1 20 0" fill="none" stroke="var(--il-tinta)" stroke-width="4"/>
+    <circle cx="200" cy="150" r="7" fill="var(--il-tinta)"/><circle cx="228" cy="150" r="7" fill="var(--il-tinta)"/>
+    <circle cx="200" cy="150" r="3" fill="var(--il-ouro)"/><circle cx="228" cy="150" r="3" fill="var(--il-ouro)"/>
+    <rect x="300" y="120" width="46" height="38" fill="var(--il-massa-3)"/>
+    <rect y="226" width="400" height="4" fill="var(--il-massa-2)"/>
+  </symbol>
+
+  <symbol id="il-banheiro" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-massa)"/>
+    <g stroke="var(--il-massa-2)" stroke-width="2" opacity=".8">
+      <path d="M0 60h400M0 120h400M0 180h400M60 0v230M180 0v230M300 0v230"/>
+    </g>
+    <rect y="230" width="400" height="70" fill="var(--il-piso)"/>
+    <rect x="228" y="42" width="146" height="188" fill="var(--il-vidro)" opacity=".55"/>
+    <rect x="228" y="42" width="146" height="188" fill="none" stroke="var(--il-tinta)" stroke-width="4"/>
+    <path d="M301 42v188" stroke="var(--il-tinta)" stroke-width="3"/>
+    <rect x="286" y="60" width="30" height="7" rx="3" fill="var(--il-ouro)"/>
+    <path d="M301 67v26" stroke="var(--il-ouro)" stroke-width="4"/>
+    <rect x="290" y="126" width="22" height="6" rx="3" fill="var(--il-tinta)"/>
+    <rect x="42" y="132" width="120" height="16" rx="4" fill="var(--il-vidro-2)"/>
+    <rect x="70" y="148" width="64" height="30" rx="6" fill="var(--il-vidro-2)"/>
+    <path d="M102 132v-18a9 9 0 0 1 18 0" fill="none" stroke="var(--il-ouro)" stroke-width="4"/>
+    <rect x="56" y="48" width="92" height="66" rx="4" fill="var(--il-ceu)" stroke="var(--il-ouro)" stroke-width="3"/>
+    <rect x="178" y="176" width="34" height="54" rx="6" fill="var(--il-vidro-2)"/>
+    <rect x="172" y="164" width="46" height="18" rx="6" fill="var(--il-massa-3)"/>
+    <rect x="44" y="196" width="60" height="7" rx="3" fill="var(--il-ouro)" opacity=".7"/>
+  </symbol>
+
+  <symbol id="il-planta" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="var(--il-ceu)"/>
+    <g stroke="var(--il-massa-2)" stroke-width="1" opacity=".55">
+      <path d="M20 0v300M60 0v300M100 0v300M140 0v300M180 0v300M220 0v300M260 0v300M300 0v300M340 0v300M380 0v300"/>
+      <path d="M0 20h400M0 60h400M0 100h400M0 140h400M0 180h400M0 220h400M0 260h400"/>
+    </g>
+    <rect x="40" y="38" width="320" height="224" fill="var(--il-massa)" opacity=".5"/>
+    <rect x="40" y="38" width="320" height="224" fill="none" stroke="var(--il-tinta)" stroke-width="6"/>
+    <path d="M40 150h92M172 150h64M256 150h104" stroke="var(--il-tinta)" stroke-width="5"/>
+    <path d="M172 38v70M172 190v72M256 38v112" stroke="var(--il-tinta)" stroke-width="5"/>
+    <path d="M132 150a20 20 0 0 1 20-20" fill="none" stroke="var(--il-ouro)" stroke-width="3"/>
+    <path d="M172 108a20 20 0 0 1 20 20" fill="none" stroke="var(--il-ouro)" stroke-width="3"/>
+    <path d="M236 150a20 20 0 0 1 20 20" fill="none" stroke="var(--il-ouro)" stroke-width="3"/>
+    <rect x="62" y="62" width="60" height="42" rx="3" fill="var(--il-massa-3)"/>
+    <rect x="196" y="62" width="44" height="34" rx="3" fill="var(--il-massa-3)"/>
+    <rect x="286" y="62" width="54" height="40" rx="3" fill="var(--il-massa-3)"/>
+    <rect x="62" y="190" width="70" height="46" rx="3" fill="var(--il-massa-3)" opacity=".7"/>
+    <rect x="286" y="182" width="20" height="30" rx="4" fill="var(--il-vidro-2)"/>
+    <rect x="316" y="186" width="30" height="16" rx="4" fill="var(--il-vidro-2)"/>
+    <g fill="var(--il-ouro)">
+      <rect x="76" y="34" width="46" height="8"/><rect x="286" y="34" width="46" height="8"/>
+      <rect x="36" y="196" width="8" height="42"/><rect x="356" y="90" width="8" height="42"/>
+    </g>
+  </symbol>
+
+  <symbol id="il-escritorio" viewBox="0 0 400 320">
+    <rect width="400" height="320" fill="var(--il-ceu)"/>
+    <rect y="262" width="400" height="58" fill="var(--il-chao)"/>
+    <rect x="34" y="40" width="332" height="222" fill="var(--il-massa)"/>
+    <rect x="34" y="40" width="332" height="20" fill="var(--il-massa-3)"/>
+    <polygon points="26,88 374,88 360,116 40,116" fill="var(--il-ouro)"/>
+    <rect x="58" y="134" width="284" height="102" fill="var(--il-vidro)"/>
+    <path d="M200 134v102" stroke="var(--il-massa)" stroke-width="4"/>
+    <g fill="var(--il-massa)">
+      <rect x="76" y="150" width="46" height="34"/><rect x="132" y="150" width="46" height="34"/>
+      <rect x="222" y="150" width="46" height="34"/><rect x="278" y="150" width="46" height="34"/>
+    </g>
+    <g fill="var(--il-ouro)" opacity=".8">
+      <rect x="76" y="188" width="46" height="4"/><rect x="132" y="188" width="46" height="4"/>
+      <rect x="222" y="188" width="46" height="4"/><rect x="278" y="188" width="46" height="4"/>
+    </g>
+    <rect x="164" y="236" width="72" height="26" fill="var(--il-vidro-2)"/>
+    <rect x="58" y="236" width="284" height="6" fill="var(--il-massa-2)"/>
+    <g fill="var(--il-tinta)" opacity=".55">
+      <rect x="120" y="66" width="160" height="8"/>
+    </g>
+    <rect x="368" y="210" width="7" height="52" fill="var(--il-tinta)"/>
+    <circle cx="371" cy="200" r="24" fill="var(--il-verde)"/>
+    <rect y="292" width="400" height="3" fill="var(--il-massa-3)" opacity=".6"/>
+  </symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="#inicio">
+      <svg class="marca-sinal" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M10 46 L32 12 L54 46" fill="none" stroke="var(--ouro)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <rect x="21" y="35" width="22" height="5" rx="1" fill="var(--ouro)"></rect>
+        <rect x="6" y="51" width="52" height="7" rx="2" fill="var(--ink)"></rect>
+      </svg>
+      <span>
+        <span class="marca-nome">Alicerce Imóveis</span>
+        <span class="marca-creci" data-creci>CRECI-MG 0000-J</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#imoveis">Imóveis</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">A imobiliária</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="lang-link" href="/en/" hreflang="en" aria-label="View this site in English">EN</a>
+    <a class="btn btn--sm" href="#contato" data-wa data-evento="whatsapp_topo">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<div id="lista">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="rotulo">Uberlândia e região · desde 2004</p>
+        <h1>Imobiliária de bairro em Uberlândia: carteira pequena e <em>todo imóvel visitado</em> por um corretor da casa.</h1>
+        <p class="sub">Compra, locação e administração de imóveis residenciais, comerciais e terrenos. Quem atende no primeiro contato acompanha até a entrega das chaves.</p>
+
+        <div class="busca" id="busca-form" role="search" aria-label="Buscar imóvel" hidden>
+          <div class="busca-campo">
+            <svg class="busca-lupa" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <label class="visually-hidden" for="busca">Código, bairro ou tipo de imóvel</label>
+            <input type="search" id="busca" placeholder="Código do imóvel, bairro ou tipo" autocomplete="off">
+          </div>
+          <button type="button" class="btn" id="btn-buscar" data-evento="buscar">Buscar</button>
+          <p class="busca-dica">Recebeu um código por WhatsApp? Digite aqui — ex.: <strong>AL-0142</strong>.</p>
+        </div>
+
+        <div class="atalhos">
+          <a class="atalho" href="#imoveis" data-atalho="venda" data-evento="atalho_comprar">Quero comprar</a>
+          <a class="atalho" href="#imoveis" data-atalho="aluguel" data-evento="atalho_alugar">Quero alugar</a>
+          <a class="atalho" href="#imoveis" data-atalho="comercial" data-evento="atalho_comercial">Ponto comercial</a>
+          <a class="atalho" href="#servicos" data-evento="anunciar">Quero anunciar o meu</a>
+        </div>
+      </div>
+
+      <svg class="ilustra ilustra--hero" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma rua residencial de Uberlândia ao entardecer">
+        <use href="#il-rua"></use>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== CREDENCIAIS ===== -->
+  <section class="faixa" aria-label="A imobiliária em números">
+    <div class="wrap" style="padding-inline:0">
+      <div class="faixa-in">
+        <div class="faixa-item"><p class="faixa-num">22</p><p class="faixa-txt">anos de CRECI ativo na cidade</p></div>
+        <div class="faixa-item"><p class="faixa-num">340</p><p class="faixa-txt">contratos de locação administrados</p></div>
+        <div class="faixa-item"><p class="faixa-num">48h</p><p class="faixa-txt">para aprovar cadastro e assinar</p></div>
+        <div class="faixa-item"><p class="faixa-num">1</p><p class="faixa-txt">corretor responsável por negociação</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATÁLOGO (seção-motor) — cards e filtros gerados a partir de IMOVEIS ===== -->
+  <section class="secao" id="imoveis">
+    <div class="wrap">
+      <div class="secao-topo">
+        <div>
+          <p class="rotulo">Carteira atualizada</p>
+          <h2 class="secao-titulo">Imóveis disponíveis</h2>
+        </div>
+        <p class="sub" style="font-size:.95rem">Todos com visita agendada em até 24 horas. O código ao lado de cada imóvel já vai junto na mensagem do WhatsApp.</p>
+      </div>
+
+      <noscript>
+        <div class="aviso-js">
+          <p><strong>A carteira de imóveis precisa de JavaScript para aparecer.</strong></p>
+          <p>Ative o JavaScript no navegador ou fale direto com um corretor no WhatsApp — o telefone está na seção de contato, no fim da página.</p>
+        </div>
+      </noscript>
+
+      <div class="aplicados" id="aplicados" hidden>
+        <span class="aplicados-rot">Filtros:</span>
+      </div>
+
+      <div class="filtros" id="filtros" role="group" aria-label="Refinar imóveis" hidden>
+        <div class="campo campo--busca">
+          <label for="f-busca">Buscar por bairro, tipo ou código</label>
+          <div class="busca-campo">
+            <svg class="busca-lupa" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <input type="search" id="f-busca" placeholder="Ex.: Santa Mônica, apartamento, AL-0142" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="filtros-grid" id="filtros-grid"></div>
+
+        <div class="filtros-rodape">
+          <div class="filtros-acoes">
+            <button type="button" class="btn btn-filtrar" id="filtrar" data-evento="filtrar">Filtrar</button>
+            <button type="button" class="limpar" id="limpar" data-evento="limpar_filtros">Limpar tudo</button>
+            <span class="aviso-pendente" id="pendente" hidden>Você mudou um filtro — clique em Filtrar</span>
+          </div>
+          <p class="contador" id="contador" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="grade" id="grade"></div>
+
+      <div class="vazio" id="vazio" hidden>
+        <p><strong>Nenhum imóvel com esses filtros no momento.</strong></p>
+        <p style="margin-top:8px">A carteira muda toda semana e nem tudo entra no site. Mande o que você procura no WhatsApp que a gente avisa quando entrar.</p>
+        <p style="margin-top:16px"><a class="btn btn--sm" href="#contato" data-wa data-evento="whatsapp_sem_resultado">Dizer o que eu procuro</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos" aria-labelledby="t-servicos">
+    <div class="wrap" style="padding-block:clamp(48px,7vw,80px) 0">
+      <p class="rotulo">O que a gente faz</p>
+      <h2 class="secao-titulo" id="t-servicos" style="margin-bottom:28px">Três frentes, um corretor responsável por cada negócio</h2>
+    </div>
+    <div class="servicos">
+      <div class="servico">
+        <h3>Comprar</h3>
+        <p>Seleção de imóveis dentro do seu orçamento real, incluindo o que ainda não foi anunciado.</p>
+        <ul>
+          <li>Simulação de financiamento antes da visita</li>
+          <li>Conferência de matrícula e certidões</li>
+          <li>Acompanhamento até a escritura</li>
+        </ul>
+      </div>
+      <div class="servico">
+        <h3>Anunciar e vender</h3>
+        <p>Avaliação com base em vendas fechadas no bairro, não em anúncio de vizinho.</p>
+        <ul>
+          <li>Avaliação gratuita e por escrito</li>
+          <li>Fotos profissionais por nossa conta</li>
+          <li>Filtro de visitantes antes de marcar visita</li>
+        </ul>
+      </div>
+      <div class="servico">
+        <h3>Administrar aluguel</h3>
+        <p>Para quem tem imóvel alugado e não quer receber ligação de inquilino.</p>
+        <ul>
+          <li>Análise de crédito e garantia do inquilino</li>
+          <li>Repasse em data fixa todo mês</li>
+          <li>Vistoria de entrada e saída com laudo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="secao" aria-labelledby="t-passos">
+    <div class="wrap">
+      <p class="rotulo">Do primeiro contato às chaves</p>
+      <h2 class="secao-titulo" id="t-passos" style="margin-bottom:30px">Como funciona</h2>
+      <div class="passos">
+        <div class="passo">
+          <span class="passo-num">Etapa 01</span>
+          <h3>Você manda o código</h3>
+          <p>Pelo WhatsApp, com o código do imóvel ou só dizendo o que procura. A resposta vem no mesmo dia, dentro do horário de atendimento.</p>
+        </div>
+        <div class="passo">
+          <span class="passo-num">Etapa 02</span>
+          <h3>Visita agendada em 24h</h3>
+          <p>Um corretor vai junto, com a matrícula e o valor das taxas em mãos. Se não servir, ele já leva duas opções parecidas.</p>
+        </div>
+        <div class="passo">
+          <span class="passo-num">Etapa 03</span>
+          <h3>Documentação e chaves</h3>
+          <p>Cadastro, análise, contrato e vistoria conduzidos pela imobiliária. Na locação, o prazo médio da proposta à assinatura é de 48 horas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="secao" id="sobre" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap sobre-grid">
+      <div class="sobre-texto">
+        <p class="rotulo">A imobiliária</p>
+        <h2 class="secao-titulo" style="margin-bottom:18px">Vinte e dois anos na mesma cidade, com o mesmo endereço</h2>
+        <p>A Alicerce abriu em 2004, numa sala no Centro, trabalhando com locação residencial. Hoje administra 340 contratos e atende compra e venda em toda Uberlândia, mas a forma de trabalhar continua a mesma: quem atende no primeiro contato acompanha até o fim.</p>
+        <p>Não trabalhamos com exclusividade forçada nem com anúncio de imóvel que não visitamos. Cada imóvel da carteira foi visto por um corretor da casa, e o que está escrito aqui é o que você vai encontrar na visita.</p>
+        <p class="assinatura"><b>Registro profissional:</b> <span data-creci>CRECI-MG 0000-J</span> · atuação restrita a Uberlândia e região</p>
+      </div>
+      <svg class="ilustra ilustra--sobre" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração da fachada da imobiliária com a vitrine de imóveis"><use href="#il-escritorio"></use></svg>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="secao" id="faq">
+    <div class="wrap">
+      <p class="rotulo">Antes de perguntar no WhatsApp</p>
+      <h2 class="secao-titulo" style="margin-bottom:22px">Dúvidas frequentes</h2>
+      <div class="faq">
+        <details open>
+          <summary>Quais documentos preciso para alugar?</summary>
+          <div class="resposta">RG, CPF, comprovante de renda dos últimos três meses e comprovante de residência atual. Autônomo pode apresentar extrato bancário. A garantia pode ser fiador, seguro-fiança ou título de capitalização — você escolhe.</div>
+        </details>
+        <details>
+          <summary>Vocês cobram taxa para eu visitar um imóvel?</summary>
+          <div class="resposta">Não. Visita, avaliação de imóvel para venda e simulação de financiamento não têm custo. Na locação, a única cobrança inicial é a do contrato, informada antes da assinatura.</div>
+        </details>
+        <details>
+          <summary>Quanto custa a administração do aluguel?</summary>
+          <div class="resposta">Um percentual sobre o valor do aluguel, combinado no contrato e descontado no repasse. Vistoria de entrada e saída, cobrança e análise de cadastro já estão incluídas.</div>
+        </details>
+        <details>
+          <summary>O imóvel aceita financiamento ou FGTS?</summary>
+          <div class="resposta">Depende do imóvel — os que aceitam estão marcados na descrição. A documentação de todos os imóveis da carteira é conferida antes de entrar no site, então dá para saber isso já no primeiro contato.</div>
+        </details>
+        <details>
+          <summary>Trabalham com imóveis fora de Uberlândia?</summary>
+          <div class="resposta">Só na região metropolitana. Fora dela, preferimos indicar uma imobiliária da cidade a atender de longe.</div>
+        </details>
+        <details>
+          <summary>Não achei o que procuro no site. E agora?</summary>
+          <div class="resposta">Parte da carteira não é anunciada, principalmente na locação. Mande pelo WhatsApp o bairro, o tipo e o valor que você tem em mente e entramos em contato quando entrar algo no perfil.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="secao contato" id="contato">
+    <div class="wrap contato-grid">
+      <div>
+        <p class="rotulo">Atendimento</p>
+        <h2 class="secao-titulo">Fale com um corretor</h2>
+        <p class="sub" style="margin-top:14px">Se você já viu um imóvel aqui, mande o código junto — assim a gente já abre a ficha antes de responder.</p>
+
+        <div class="dados">
+          <div class="dado">
+            <p class="dado-rot">WhatsApp</p>
+            <a href="#" data-wa data-telefone data-evento="whatsapp_contato">(34) 0 0000-0000</a>
+          </div>
+          <div class="dado">
+            <p class="dado-rot">Endereço</p>
+            <p data-endereco>Rua Exemplo, 000 — Centro, Uberlândia/MG</p>
+          </div>
+          <div class="dado">
+            <p class="dado-rot">Horário</p>
+            <p>Segunda a sexta, 8h às 18h · Sábado, 9h às 12h</p>
+          </div>
+          <div class="dado">
+            <p class="dado-rot">Registro</p>
+            <p data-creci>CRECI-MG 0000-J</p>
+          </div>
+        </div>
+
+        <p style="margin-top:26px"><a class="btn" href="#" data-wa data-evento="whatsapp_final">Chamar no WhatsApp</a></p>
+      </div>
+
+      <div class="mapa" id="mapa"><span>Substituir por embed do Google Maps (iframe 16:11) com o endereço real</span></div>
+    </div>
+  </section>
+</div><!-- /#lista -->
+
+<div id="detalhes" hidden></div>
+</main>
+
+
+
+<footer class="rodape">
+  <div class="wrap rodape-in">
+    <p>Alicerce Imóveis · <span data-creci>CRECI-MG 0000-J</span> · <span id="ano">2026</span></p>
+    <p>Site por <a href="https://veyroni.co" rel="noopener">Veyroni</a></p>
+  </div>
+</footer>
+
+<a class="flutuante" href="#" data-wa data-evento="whatsapp_flutuante">Falar no WhatsApp</a>
+
+<div class="zoom" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <div class="zoom-palco" id="zoom-palco"></div>
+  <button type="button" class="zoom-btn zoom-fechar" id="zoom-fechar" aria-label="Fechar (Esc)">&times;</button>
+  <button type="button" class="zoom-btn zoom-nav zoom-ant" id="zoom-ant" aria-label="Foto anterior">&lsaquo;</button>
+  <button type="button" class="zoom-btn zoom-nav zoom-prox" id="zoom-prox" aria-label="Próxima foto">&rsaquo;</button>
+  <p class="zoom-contador" id="zoom-contador" aria-live="polite"></p>
+</div>
+
+<script>
+/* ============================================================
+   1. DADOS — é só aqui que você edita para um cliente novo.
+      Card, página do imóvel e opções de filtro são gerados
+      a partir daqui. Nada de imóvel escrito à mão no HTML.
+   ============================================================ */
+
+var ALICERCE = {
+  whatsapp:  "5547996419450",
+  telefone:  "(47) 99641-9450",
+  creci:     "CRECI-MG 0000-J",
+  endereco:  "Rua Exemplo, 000 — Centro, Uberlândia/MG",
+  instagram: "https://instagram.com/alicerceimoveis",
+  msgPadrao: "Olá! Vim pelo site e queria falar com um corretor.",
+  msgImovel: "Olá! Tenho interesse no imóvel {codigo} que vi no site."
+};
+
+/* rótulo de cada tipo — usado no card e no select */
+var TIPOS = {
+  apartamento: "Apartamento",
+  casa:        "Casa",
+  comercial:   "Sala / barracão",
+  terreno:     "Terreno"
+};
+
+/* as únicas opções que não saem dos dados: as faixas de valor,
+   separadas por finalidade para não misturar aluguel com compra */
+var FAIXAS = {
+  aluguel: [[1500, "até R$ 1.500"], [2500, "até R$ 2.500"], [7000, "até R$ 7.000"]],
+  venda:   [[500000, "até R$ 500 mil"], [800000, "até R$ 800 mil"], [1500000, "até R$ 1,5 milhão"]]
+};
+
+var IMOVEIS = [
+  {
+    codigo: "AL-0142", finalidade: "venda", tipo: "apartamento", bairro: "Santa Mônica",
+    rotulo: "Apartamento", destaque: true,
+    titulo: "3 quartos com suíte, a duas quadras da UFU",
+    preco: 465000, taxas: "Condomínio R$ 480 · IPTU R$ 1.240/ano",
+    area: 78, quartos: 3, banheiros: 2, vagas: 1,
+    specs: ["78 m²", "3 quartos", "1 vaga"],
+    busca: "apto suite ufu santa monica",
+    capa: "fotos/AL-0142-1.jpg",
+    galeria: [
+      ["fotos/AL-0142-1.jpg", "sala de estar com painel de madeira"],
+      ["fotos/AL-0142-2.jpg", "sala integrada com a bancada da cozinha"],
+      ["fotos/AL-0142-3.jpg", "bancada da cozinha com banquetas"],
+      ["fotos/AL-0142-4.jpg", "cozinha vista da bancada"],
+      ["fotos/AL-0142-5.jpg", "sala e cozinha no fim da tarde"],
+      ["fotos/AL-0142-6.jpg", "suíte com cabeceira de madeira"],
+      ["fotos/AL-0142-7.jpg", "quarto com armário embutido"],
+      ["fotos/AL-0142-8.jpg", "closet com armários dos dois lados"]
+    ],
+    descricao: [
+      "Terceiro andar de um prédio de 2004 com quatro apartamentos por andar e nenhuma unidade vaga. A sala é em L, o que permite separar estar e jantar sem obra. Os armários planejados da cozinha e da suíte ficam, e estão em bom estado — foram instalados na reforma de 2021, junto com a troca do piso da área social por porcelanato.",
+      "O prédio não tem elevador. É o que segura o preço abaixo dos apartamentos equivalentes no mesmo quarteirão, e é a primeira coisa que o corretor vai dizer na visita: se três lances de escada forem um problema, não vale a viagem. Para quem aluga por perto da UFU, é justamente o tipo de unidade que não fica vazia."
+    ],
+    perto: [["Campus Santa Mônica da UFU", "600 m, a pé"], ["Supermercado de bairro", "350 m"],
+            ["Ponto de ônibus", "na esquina"], ["Praça com academia ao ar livre", "2 quadras"],
+            ["UAI Santa Mônica", "1,1 km"], ["Padaria e farmácia", "mesma rua"]],
+    ficha: [["Área privativa", "78 m²"], ["Quartos", "3 (1 suíte)"], ["Banheiros", "2"],
+            ["Vagas", "1 coberta"], ["Andar", "3º, sem elevador"], ["Condomínio", "R$ 480/mês"],
+            ["IPTU", "R$ 1.240/ano"], ["Ano do prédio", "2004"], ["Financiamento", "Aceita, com FGTS"],
+            ["Matrícula", "Regularizada"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0180", "AL-0163"]
+  },
+  {
+    codigo: "AL-0158", finalidade: "venda", tipo: "casa", bairro: "Morada da Colina",
+    rotulo: "Casa",
+    titulo: "Casa térrea com quintal e edícula nos fundos",
+    preco: 1190000, taxas: "IPTU R$ 3.480/ano · sem condomínio",
+    area: 168, quartos: 3, banheiros: 2, vagas: 2,
+    specs: ["168 m²", "3 quartos", "2 vagas"],
+    busca: "casa terrea morada da colina quintal edicula",
+    capa: "il-casa",
+    galeria: [["il-casa", ""], ["il-sala", "Sala"], ["il-quarto", "Suíte"], ["il-planta", "Planta"]],
+    descricao: [
+      "Casa térrea de 1998 num terreno de 12 por 30, em rua sem saída — o movimento é só de morador. São 168 m² construídos na frente e uma edícula independente nos fundos, com quarto, banheiro e entrada própria, hoje usada como escritório. Funciona igualmente bem como apartamento de hóspedes ou moradia de funcionário.",
+      "A reforma de 2019 trocou a fiação, o telhado e os dois banheiros. O quintal tem churrasqueira de alvenaria e espaço para piscina sem mexer na área construída — o recuo lateral permite. A garagem é coberta para dois carros, com portão automatizado."
+    ],
+    perto: [["Colégio particular", "400 m"], ["Shopping", "1,2 km"], ["Parque do Sabiá", "2,5 km"],
+            ["Av. Rondon Pacheco", "1 km"], ["Padaria e hortifrúti", "2 quadras"], ["Hospital particular", "1,8 km"]],
+    ficha: [["Terreno", "360 m² (12×30)"], ["Área construída", "168 m²"], ["Quartos", "3 (1 suíte)"],
+            ["Banheiros", "2 + edícula"], ["Vagas", "2 cobertas"], ["Condomínio", "Não há"],
+            ["IPTU", "R$ 3.480/ano"], ["Construção", "1998, reforma 2019"], ["Financiamento", "Aceita"],
+            ["Matrícula", "Regularizada"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0186", "AL-0177"]
+  },
+  {
+    codigo: "AL-0163", finalidade: "aluguel", tipo: "apartamento", bairro: "Tibery",
+    rotulo: "Apartamento",
+    titulo: "2 quartos em prédio com portaria 24h",
+    preco: 1650, taxas: "Condomínio R$ 380 · IPTU incluso",
+    area: 58, quartos: 2, banheiros: 1, vagas: 1,
+    specs: ["58 m²", "2 quartos", "1 vaga"],
+    busca: "apto tibery portaria 24h locacao",
+    capa: "il-predio",
+    galeria: [["il-predio", ""], ["il-sala", "Sala"], ["il-quarto", "Quarto"], ["il-banheiro", "Banheiro"]],
+    descricao: [
+      "Quinto andar, com elevador e portaria 24 horas — o prédio tem controle de acesso e o porteiro recebe encomenda. O apartamento acabou de ser pintado e está de piso frio em toda a área, o que facilita a limpeza e não segura cheiro. A cozinha tem armário instalado e a sacada tem ponto de churrasqueira a carvão.",
+      "A água entra no condomínio, então a conta mensal fica previsível: aluguel mais R$ 380, sem surpresa de rateio. O IPTU também está incluso. Disponível para entrada imediata, com garantia por fiador, seguro-fiança ou título de capitalização."
+    ],
+    perto: [["Supermercado", "500 m"], ["Terminal Santa Luzia", "1,3 km"], ["Campus Umuarama da UFU", "3 km"],
+            ["Escola estadual", "700 m"], ["Posto de saúde", "900 m"], ["Ponto de ônibus", "150 m"]],
+    ficha: [["Área privativa", "58 m²"], ["Quartos", "2"], ["Banheiros", "1"], ["Vagas", "1 descoberta"],
+            ["Andar", "5º, com elevador"], ["Condomínio", "R$ 380 (água inclusa)"],
+            ["IPTU", "Incluso no condomínio"], ["Mobiliado", "Não"],
+            ["Garantia", "Fiador, seguro ou capitalização"], ["Disponibilidade", "Imediata"]],
+    nota: "Cadastro aprovado em até 48 horas.",
+    semelhantes: ["AL-0195", "AL-0142"]
+  },
+  {
+    codigo: "AL-0171", finalidade: "aluguel", tipo: "comercial", bairro: "Centro",
+    rotulo: "Sala comercial",
+    titulo: "Sala de esquina com banheiro próprio e recepção",
+    preco: 2200, taxas: "Condomínio R$ 290 · IPTU R$ 1.900/ano",
+    area: 42, quartos: 0, banheiros: 1, vagas: 1,
+    specs: ["42 m²", "2 ambientes", "1 vaga"],
+    busca: "sala comercial centro esquina escritorio ponto locacao",
+    capa: "il-comercial",
+    galeria: [["il-comercial", ""], ["il-planta", "Planta"], ["il-banheiro", "Banheiro"], ["il-rua", "Entorno"]],
+    descricao: [
+      "Sala de esquina no segundo andar, com janelas para as duas ruas — é o que faz diferença num imóvel de 42 m²: entra luz o dia inteiro e não precisa de iluminação artificial na recepção. A divisão atual tem recepção na entrada e uma sala fechada ao fundo, mais copa e banheiro privativo, sem depender do banheiro do andar.",
+      "O perfil que costuma fechar aqui é consultório, escritório de contabilidade ou advocacia. O prédio permite placa na fachada e tem elevador. Os dois aparelhos de ar-condicionado instalados ficam. O alvará de localização sai rápido porque o edifício já é de uso exclusivamente comercial."
+    ],
+    perto: [["Fórum", "600 m"], ["Cartórios", "mesmo quarteirão"], ["Agências bancárias", "2 quadras"],
+            ["Estacionamento rotativo", "na porta"], ["Terminal Central", "850 m"], ["Restaurantes e cafés", "mesma rua"]],
+    ficha: [["Área", "42 m²"], ["Ambientes", "2 + copa"], ["Banheiro", "1 privativo"], ["Vagas", "1 no subsolo"],
+            ["Andar", "2º, com elevador"], ["Condomínio", "R$ 290/mês"], ["IPTU", "R$ 1.900/ano"],
+            ["Ar-condicionado", "2 aparelhos, ficam"], ["Placa na fachada", "Permitida"],
+            ["Contrato", "Mínimo 30 meses"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0191", "AL-0163"]
+  },
+  {
+    codigo: "AL-0177", finalidade: "venda", tipo: "terreno", bairro: "Jardim Karaíba",
+    rotulo: "Terreno",
+    titulo: "Lote plano em condomínio fechado, pronto para construir",
+    preco: 520000, taxas: "Taxa do condomínio R$ 640/mês",
+    area: 360, quartos: 0, banheiros: 0, vagas: 0,
+    specs: ["360 m²", "12 m de frente", "Escritura ok"],
+    busca: "terreno lote jardim karaiba condominio fechado construir",
+    capa: "il-terreno",
+    galeria: [["il-terreno", ""], ["il-planta", "Implantação"], ["il-rua", "Rua interna"], ["il-casa", "Vizinhança"]],
+    descricao: [
+      "Lote de 12 por 30 metros, plano de ponta a ponta. Isso não é detalhe de anúncio: terreno plano dispensa aterro e muro de arrimo, que é onde a obra de um lote em declive estoura o orçamento antes mesmo da fundação. Água, esgoto e energia já estão na rua, com os ramais na testada.",
+      "O condomínio tem portaria 24 horas com ronda, área de lazer entregue e regra de construção definida: até três pavimentos, recuo frontal de cinco metros e prazo de dois anos para iniciar a obra depois da escritura. A escritura está registrada e o lote não tem enfiteuse nem pendência de loteadora."
+    ],
+    perto: [["Portaria com ronda 24h", "na entrada"], ["Área de lazer do condomínio", "300 m"],
+            ["Escola particular", "1,5 km"], ["Avenida principal", "800 m"], ["Shopping", "2,4 km"],
+            ["Supermercado", "1,1 km"]],
+    ficha: [["Área", "360 m²"], ["Dimensões", "12 × 30 m"], ["Topografia", "Plano"],
+            ["Condomínio", "Fechado, portaria 24h"], ["Taxa", "R$ 640/mês"], ["IPTU", "R$ 2.100/ano"],
+            ["Infraestrutura", "Água, esgoto e energia"], ["Gabarito", "Até 3 pavimentos"],
+            ["Recuo frontal", "5 m"], ["Escritura", "Registrada"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0158", "AL-0186"]
+  },
+  {
+    codigo: "AL-0180", finalidade: "venda", tipo: "casa", bairro: "Tabajaras",
+    rotulo: "Casa",
+    titulo: "Casa de 2 quartos que aceita financiamento e FGTS",
+    preco: 398000, taxas: "IPTU R$ 1.120/ano · documentação regularizada",
+    area: 96, quartos: 2, banheiros: 1, vagas: 2,
+    specs: ["120 m²", "2 quartos", "2 vagas"],
+    busca: "casa tabajaras financiamento fgts primeiro imovel",
+    capa: "il-casa2",
+    galeria: [["il-casa2", ""], ["il-quarto", "Quarto"], ["il-cozinha", "Cozinha"], ["il-planta", "Planta"]],
+    descricao: [
+      "Casa de 1994 em terreno de 120 m², com 96 m² construídos: dois quartos, sala, cozinha com área de serviço integrada e um quintal pequeno nos fundos. A garagem é coberta e cabem dois carros em fila. Não é casa grande, e o anúncio não finge que é — é casa de primeiro imóvel, e é aí que ela ganha dos concorrentes.",
+      "A documentação está regularizada e a avaliação bancária já foi feita: aceita financiamento e uso de FGTS, inclusive nas faixas do programa habitacional. Para quem tem carta de crédito aprovada, é um dos poucos imóveis da carteira que fecha sem entrada alta."
+    ],
+    perto: [["Escola municipal", "300 m"], ["UBS do bairro", "650 m"], ["Mercado", "mesma rua"],
+            ["Ponto de ônibus", "200 m"], ["Praça com quadra", "2 quadras"], ["Centro", "3,5 km"]],
+    ficha: [["Terreno", "120 m²"], ["Área construída", "96 m²"], ["Quartos", "2"], ["Banheiros", "1"],
+            ["Vagas", "2 cobertas, em fila"], ["Condomínio", "Não há"], ["IPTU", "R$ 1.120/ano"],
+            ["Construção", "1994"], ["Financiamento", "Aceita, com FGTS"], ["Matrícula", "Regularizada"]],
+    nota: "Simulação de financiamento antes da visita.",
+    semelhantes: ["AL-0142", "AL-0158"]
+  },
+  {
+    codigo: "AL-0186", finalidade: "venda", tipo: "apartamento", bairro: "Jardim Karaíba",
+    rotulo: "Apartamento", destaque: true,
+    titulo: "4 quartos, 2 suítes e varanda gourmet fechada",
+    preco: 1450000, taxas: "Condomínio R$ 1.180 · IPTU R$ 4.300/ano",
+    area: 142, quartos: 4, banheiros: 3, vagas: 2,
+    specs: ["142 m²", "4 quartos", "2 vagas"],
+    busca: "apto jardim karaiba varanda gourmet alto padrao suites",
+    capa: "il-varanda",
+    galeria: [["il-varanda", ""], ["il-sala", "Sala"], ["il-quarto", "Suíte máster"], ["il-planta", "Planta"]],
+    descricao: [
+      "Décimo primeiro andar, 142 m² privativos, quatro quartos sendo duas suítes. A varanda é fechada com vidro retrátil e tem churrasqueira e cuba instaladas — na prática, um cômodo a mais o ano inteiro, e não só nos meses secos. A vista é para o lado aberto do bairro, sem prédio colado na frente.",
+      "As duas vagas são cobertas e lado a lado, o que é raro nessa metragem: a maioria dos concorrentes tem duas vagas em fila, e isso aparece no dia a dia. Os armários planejados de todos os quartos ficam. O prédio é de 2016, com piscina, salão de festas, academia e dois elevadores por torre."
+    ],
+    perto: [["Shopping", "900 m"], ["Colégio particular", "1,2 km"], ["Parque linear", "600 m"],
+            ["Avenida principal", "400 m"], ["Padaria e mercado", "mesma quadra"], ["Hospital particular", "2,1 km"]],
+    ficha: [["Área privativa", "142 m²"], ["Quartos", "4 (2 suítes)"], ["Banheiros", "3"],
+            ["Vagas", "2 cobertas, lado a lado"], ["Andar", "11º, 2 elevadores"],
+            ["Condomínio", "R$ 1.180/mês"], ["IPTU", "R$ 4.300/ano"], ["Ano do prédio", "2016"],
+            ["Lazer", "Piscina, salão, academia"], ["Financiamento", "Aceita"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0158", "AL-0177"]
+  },
+  {
+    codigo: "AL-0191", finalidade: "aluguel", tipo: "comercial", bairro: "Nova Uberlândia",
+    rotulo: "Barracão",
+    titulo: "Barracão com pátio de manobra e escritório anexo",
+    preco: 6800, taxas: "IPTU R$ 5.600/ano · energia trifásica",
+    area: 300, quartos: 0, banheiros: 1, vagas: 0,
+    specs: ["300 m²", "Pé-direito 6 m", "2 docas"],
+    busca: "barracao galpao nova uberlandia deposito industrial docas locacao",
+    capa: "il-barracao",
+    galeria: [["il-barracao", ""], ["il-planta", "Planta"], ["il-comercial", "Escritório"], ["il-rua", "Acesso"]],
+    descricao: [
+      "Trezentos metros quadrados de área útil, pé-direito de seis metros e duas docas na altura de caminhão truck — dá para carregar sem plataforma móvel, o que economiza o aluguel do equipamento. O piso é de concreto polido e suporta empilhadeira carregada; não tem junta solta nem desnível na entrada.",
+      "Na frente há pátio de manobra próprio, com espaço para o caminhão girar sem usar a via pública. O escritório anexo tem 24 m², banheiro e copa, com entrada separada do galpão. A energia trifásica já está instalada e o padrão comporta máquina pesada."
+    ],
+    perto: [["BR-050", "2 km"], ["Distrito industrial", "no entorno"], ["Transportadoras", "mesma via"],
+            ["Posto de combustível", "900 m"], ["Restaurante", "600 m"], ["Ponto de ônibus", "350 m"]],
+    ficha: [["Área útil", "300 m²"], ["Pé-direito", "6 m"], ["Docas", "2, altura de truck"],
+            ["Escritório anexo", "24 m²"], ["Pátio de manobra", "Sim, próprio"],
+            ["Energia", "Trifásica instalada"], ["Piso", "Concreto polido"], ["IPTU", "R$ 5.600/ano"],
+            ["Garantia", "Seguro-fiança ou caução"], ["Contrato", "Mínimo 24 meses"]],
+    nota: "Visita agendada em até 24 horas.",
+    semelhantes: ["AL-0171", "AL-0177"]
+  },
+  {
+    codigo: "AL-0195", finalidade: "aluguel", tipo: "apartamento", bairro: "Umuarama",
+    rotulo: "Studio mobiliado",
+    titulo: "Studio mobiliado a 400 m do Hospital de Clínicas",
+    preco: 1100, taxas: "Condomínio R$ 310 com água e internet",
+    area: 32, quartos: 1, banheiros: 1, vagas: 0,
+    specs: ["32 m²", "1 quarto", "Mobiliado"],
+    busca: "studio kitnet mobiliado umuarama hospital de clinicas residente locacao",
+    capa: "il-studio",
+    galeria: [["il-studio", ""], ["il-banheiro", "Banheiro"], ["il-planta", "Planta"], ["il-predio", "Prédio"]],
+    descricao: [
+      "Trinta e dois metros quadrados em ambiente único, entregue mobiliado: cama de solteiro com baú, guarda-roupa, bancada de estudo, cooktop, frigobar, micro-ondas e ar-condicionado. Tudo consta em inventário no contrato e a vistoria de entrada é feita com foto item por item.",
+      "O condomínio inclui água e internet, então o custo mensal fecha em R$ 1.410 sem variação. O perfil de quem mora aqui é residente de plantão, estudante de medicina e profissional em contrato temporário no hospital — o prédio tem lavanderia coletiva e bicicletário por causa disso."
+    ],
+    perto: [["Hospital de Clínicas", "400 m, a pé"], ["Campus Umuarama da UFU", "700 m"],
+            ["Farmácia 24 horas", "250 m"], ["Restaurante universitário", "800 m"],
+            ["Ponto de ônibus", "120 m"], ["Mercado", "400 m"]],
+    ficha: [["Área", "32 m²"], ["Ambiente", "1 integrado"], ["Banheiros", "1"], ["Vagas", "Sem vaga"],
+            ["Andar", "4º, com elevador"], ["Mobiliado", "Sim, com inventário"],
+            ["Condomínio", "R$ 310 (água e internet)"], ["IPTU", "Incluso no condomínio"],
+            ["Garantia", "Capitalização ou seguro"], ["Contrato", "12 meses"]],
+    nota: "Cadastro aprovado em até 48 horas.",
+    semelhantes: ["AL-0163", "AL-0171"]
+  }
+];
+
+/* ============================================================
+   2. Daqui para baixo não precisa mexer para trocar de cliente.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var d = document;
+  d.documentElement.lang = "pt-BR";
+  var cada = function (lista, fn) { Array.prototype.forEach.call(lista, fn); };
+
+  function esc(t) {
+    return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function normal(t) {
+    return (t || "").toLowerCase().normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+
+  function brl(n) { return "R$ " + n.toLocaleString("pt-BR"); }
+
+  function precoHTML(im) {
+    return brl(im.preco) + (im.finalidade === "aluguel" ? '<span> /mês</span>' : "");
+  }
+
+  function precoTexto(im) {
+    return brl(im.preco) + (im.finalidade === "aluguel" ? "/mês" : "");
+  }
+
+  function porCodigo(cod) {
+    for (var i = 0; i < IMOVEIS.length; i++) {
+      if (IMOVEIS[i].codigo === cod) { return IMOVEIS[i]; }
+    }
+    return null;
+  }
+
+  /* Aceita os dois: "il-sala" desenha a ilustração, "fotos/AL-0142-1.webp"
+     vira <img>. Dá para trocar imóvel por imóvel, conforme as fotos chegam. */
+  function ilustra(fonte, classe, rotulo) {
+    if (String(fonte).indexOf("il-") === 0) {
+      return '<svg class="ilustra ' + classe + '" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"' +
+             ' role="img" aria-label="' + esc(rotulo) + '">' +
+             '<use href="#' + fonte + '"></use></svg>';
+    }
+    return '<img class="ilustra ' + classe + '" src="' + esc(fonte) + '" alt="' + esc(rotulo) + '"' +
+           ' loading="lazy" decoding="async">';
+  }
+
+  /* ---------- 2a. cards ---------- */
+  function cardHTML(im) {
+    var chips = '<span class="chip chip--' + im.finalidade + '">' +
+                (im.finalidade === "venda" ? "Venda" : "Aluguel") + '</span>' +
+                (im.destaque ? '<span class="chip chip--destaque">Destaque</span>' : "");
+
+    return '<article class="card" data-imovel data-codigo="' + im.codigo + '">' +
+      '<a class="card-foto" href="#imovel-' + im.codigo + '" data-evento="abrir_imovel"' +
+      ' aria-label="Ver a página do imóvel ' + im.codigo + '">' +
+        ilustra(im.capa, "ilustra--card", im.rotulo + " no " + im.bairro) +
+        '<div class="card-chips">' + chips + '</div>' +
+        '<span class="ver-mais" aria-hidden="true">Ver detalhes</span>' +
+      '</a>' +
+      '<div class="card-corpo">' +
+        '<p class="card-tipo">' + esc(im.rotulo) + ' · ' + esc(im.bairro) + '</p>' +
+        '<h3 class="card-titulo"><a href="#imovel-' + im.codigo + '">' + esc(im.titulo) + '</a></h3>' +
+        '<p class="card-preco">' + precoHTML(im) + '</p>' +
+        '<p class="card-taxas">' + esc(im.taxas) + '</p>' +
+        '<ul class="specs">' + im.specs.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join("") + '</ul>' +
+        '<div class="card-rodape">' +
+          '<span class="codigo">' + im.codigo + '</span>' +
+          '<a class="btn btn--sm" href="#contato" data-wa data-codigo="' + im.codigo + '"' +
+          ' data-evento="whatsapp_imovel">Tenho interesse</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  /* ---------- 2b. página do imóvel ---------- */
+  function fichaHTML(im) {
+    /* sem legenda visível: o texto do segundo item vira só a descrição
+       da imagem, que serve para leitor de tela e para o Google */
+    var galeria = im.galeria.map(function (g) {
+      var desc = (g[1] || im.titulo) + " — " + im.rotulo + " no " + im.bairro;
+      return '<figure style="margin:0" tabindex="0" role="button"' +
+             ' aria-label="Ampliar foto: ' + esc(desc) + '">' +
+             ilustra(g[0], "", desc) +
+             '</figure>';
+    }).join("");
+
+    /* o número de colunas acompanha a quantidade de miniaturas, para não
+       sobrar uma foto sozinha numa fileira */
+    var mini = im.galeria.length - 1;
+    var colunas = (mini <= 3) ? Math.max(mini, 1) : (mini % 3 === 0 ? 3 : 4);
+
+    var perto = im.perto.map(function (p) {
+      return '<li><b>' + esc(p[0]) + '</b> — ' + esc(p[1]) + '</li>';
+    }).join("");
+
+    var ficha = im.ficha.map(function (f) {
+      return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>';
+    }).join("");
+
+    var semelhantes = im.semelhantes.map(function (cod) {
+      var s = porCodigo(cod);
+      if (!s) { return ""; }
+      return '<a class="semelhante" href="#imovel-' + s.codigo + '">' +
+             '<em>' + esc(s.rotulo) + ' · ' + esc(s.bairro) + '</em>' +
+             '<strong>' + esc(s.titulo) + '</strong>' +
+             '<span>' + esc(precoTexto(s)) + '</span></a>';
+    }).join("");
+
+    return '<article class="detalhe" id="imovel-' + im.codigo + '" data-detalhe tabindex="-1" hidden>' +
+      '<div class="wrap">' +
+        '<a class="voltar" href="#imoveis" data-voltar>&larr; Voltar para os imóveis</a>' +
+        '<div class="detalhe-cabeca"><div>' +
+          '<p class="rotulo" style="margin-bottom:0">' + esc(im.rotulo) + ' · ' + esc(im.bairro) + ' · ' + im.codigo + '</p>' +
+          '<h2>' + esc(im.titulo) + '</h2>' +
+        '</div>' +
+        '<p class="detalhe-preco">' + brl(im.preco) +
+          '<span>' + (im.finalidade === "aluguel" ? "por mês · " : "") + esc(im.taxas) + '</span></p>' +
+        '</div>' +
+        '<div class="galeria" style="--colunas:' + colunas + '">' + galeria + '</div>' +
+        '<div class="detalhe-grid">' +
+          '<div class="detalhe-texto">' +
+            '<h3>Sobre o imóvel</h3>' +
+            im.descricao.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join("") +
+            '<h3>O que tem por perto</h3><ul class="perto">' + perto + '</ul>' +
+          '</div>' +
+          '<aside class="ficha"><h3>Ficha técnica</h3><dl>' + ficha + '</dl>' +
+            '<a class="btn" href="#contato" data-wa data-codigo="' + im.codigo + '"' +
+            ' data-evento="whatsapp_detalhe">Falar sobre o ' + im.codigo + '</a>' +
+            '<p class="ficha-nota">' + esc(im.nota) + '</p>' +
+          '</aside>' +
+        '</div>' +
+        (semelhantes ? '<div class="detalhe-fim"><h3 style="font-size:1.2rem">Imóveis semelhantes</h3>' +
+                       '<div class="semelhantes">' + semelhantes + '</div></div>' : "") +
+      '</div>' +
+    '</article>';
+  }
+
+  /* ---------- 2c. opções de filtro, tiradas da carteira ---------- */
+  function unicos(campo) {
+    var vistos = {}, saida = [];
+    IMOVEIS.forEach(function (im) {
+      var v = im[campo];
+      if (v === "" || v === undefined || vistos[v]) { return; }
+      vistos[v] = true; saida.push(v);
+    });
+    return saida;
+  }
+
+  function maximo(campo) {
+    return IMOVEIS.reduce(function (m, im) { return Math.max(m, im[campo] || 0); }, 0);
+  }
+
+  function selectHTML(id, nome, rotulo, vazio, opcoes) {
+    return '<div class="campo"><label for="' + id + '">' + esc(rotulo) + '</label>' +
+      '<select id="' + id + '" data-filtro data-nome="' + esc(nome) + '">' +
+      '<option value="">' + esc(vazio) + '</option>' + opcoes + '</select></div>';
+  }
+
+  function opcoesNumero(max, sufixoUm, sufixoMais) {
+    var out = "";
+    for (var i = 1; i <= max; i++) {
+      out += '<option value="' + i + '">' + i + (i === 1 ? sufixoUm : sufixoMais) + '</option>';
+    }
+    return out;
+  }
+
+  function montarFiltros() {
+    var grid = d.getElementById("filtros-grid");
+
+    var oTipo = unicos("tipo").map(function (t) {
+      return '<option value="' + t + '">' + esc(TIPOS[t] || t) + '</option>';
+    }).join("");
+
+    var oBairro = unicos("bairro").sort(function (a, b) {
+      return a.localeCompare(b, "pt-BR");
+    }).map(function (b) {
+      return '<option value="' + esc(b) + '">' + esc(b) + '</option>';
+    }).join("");
+
+    var oPreco = "";
+    if (unicos("finalidade").indexOf("aluguel") !== -1) {
+      oPreco += '<optgroup label="Para alugar">' + FAIXAS.aluguel.map(function (f) {
+        return '<option value="' + f[0] + '" data-fim="aluguel">' + esc(f[1]) + '</option>';
+      }).join("") + '</optgroup>';
+    }
+    if (unicos("finalidade").indexOf("venda") !== -1) {
+      oPreco += '<optgroup label="Para comprar">' + FAIXAS.venda.map(function (f) {
+        return '<option value="' + f[0] + '" data-fim="venda">' + esc(f[1]) + '</option>';
+      }).join("") + '</optgroup>';
+    }
+
+    grid.innerHTML =
+      selectHTML("f-finalidade", "Finalidade", "Finalidade", "Comprar ou alugar",
+        '<option value="venda">Comprar</option><option value="aluguel">Alugar</option>') +
+      selectHTML("f-tipo", "Tipo", "Tipo de imóvel", "Todos os tipos", oTipo) +
+      selectHTML("f-bairro", "Bairro", "Bairro", "Todos os bairros", oBairro) +
+      selectHTML("f-quartos", "Quartos", "Quartos", "Tanto faz",
+        opcoesNumero(maximo("quartos"), " quarto", " quartos ou mais")) +
+      selectHTML("f-banheiros", "Banheiros", "Banheiros", "Tanto faz",
+        opcoesNumero(maximo("banheiros"), " banheiro", " banheiros ou mais")) +
+      selectHTML("f-vagas", "Vagas", "Vagas", "Tanto faz",
+        opcoesNumero(maximo("vagas"), " vaga", " vagas ou mais")) +
+      selectHTML("f-preco", "Valor", "Valor até", "Sem limite", oPreco);
+  }
+
+  /* ---------- 2d. montagem ---------- */
+  var grade    = d.getElementById("grade");
+  var detalhes = d.getElementById("detalhes");
+
+  grade.innerHTML    = IMOVEIS.map(cardHTML).join("");
+  detalhes.innerHTML = IMOVEIS.map(fichaHTML).join("");
+  montarFiltros();
+
+  IMOVEIS.forEach(function (im) {
+    im.el = grade.querySelector('[data-codigo="' + im.codigo + '"]');
+    var txt = normal([im.codigo, im.rotulo, TIPOS[im.tipo], im.bairro, im.titulo, im.taxas,
+                      im.specs.join(" "), im.busca,
+                      im.finalidade === "venda" ? "venda comprar" : "aluguel alugar locacao"].join(" "));
+    im.idx  = txt;
+    im.idxc = txt.replace(/ /g, "");
+  });
+
+  /* ---------- 2e. dados do CONFIG no HTML ---------- */
+  cada(d.querySelectorAll("[data-creci]"),    function (el) { el.textContent = ALICERCE.creci; });
+  cada(d.querySelectorAll("[data-endereco]"), function (el) { el.textContent = ALICERCE.endereco; });
+  cada(d.querySelectorAll("[data-telefone]"), function (el) { el.textContent = ALICERCE.telefone; });
+  var ano = d.getElementById("ano");
+  if (ano) { ano.textContent = new Date().getFullYear(); }
+
+  cada(d.querySelectorAll("[data-wa]"), function (el) {
+    var codigo = el.getAttribute("data-codigo");
+    var texto = codigo ? ALICERCE.msgImovel.replace("{codigo}", codigo) : ALICERCE.msgPadrao;
+    el.setAttribute("href", "https://wa.me/" + ALICERCE.whatsapp + "?text=" + encodeURIComponent(texto));
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  /* ---------- 2f. busca e filtros ---------- */
+  var painel     = d.getElementById("filtros");
+  var buscaForm  = d.getElementById("busca-form");
+  var busca      = d.getElementById("busca");
+  var fBusca     = d.getElementById("f-busca");
+  var vazio      = d.getElementById("vazio");
+  var contador   = d.getElementById("contador");
+  var limpar     = d.getElementById("limpar");
+  var aplicados  = d.getElementById("aplicados");
+  var btnFiltrar = d.getElementById("filtrar");
+  var avisoPend  = d.getElementById("pendente");
+
+  painel.hidden = false;
+  buscaForm.hidden = false;
+
+  var campos  = [busca, fBusca];
+  var selects = Array.prototype.slice.call(painel.querySelectorAll("[data-filtro]"));
+
+  /* casa palavra por palavra, em qualquer ordem; tolera plural e código sem hífen */
+  function casa(im, termo) {
+    if (!termo) { return true; }
+    var toks = termo.split(" ");
+    for (var i = 0; i < toks.length; i++) {
+      var t = toks[i];
+      if (!t) { continue; }
+      var achou = im.idx.indexOf(t) !== -1 || im.idxc.indexOf(t) !== -1;
+      if (!achou && t.length > 3 && t.charAt(t.length - 1) === "s") {
+        var sing = t.slice(0, -1);
+        achou = im.idx.indexOf(sing) !== -1 || im.idxc.indexOf(sing) !== -1;
+      }
+      if (!achou) { return false; }
+    }
+    return true;
+  }
+
+  /* os selects só valem no clique em Filtrar; esta é a cópia congelada */
+  var selAplicado = {};
+
+  function congelarSelects() {
+    selects.forEach(function (sel) { selAplicado[sel.id] = sel.value; });
+    btnFiltrar.classList.remove("is-pendente");
+    avisoPend.hidden = true;
+  }
+
+  function pendenteOn() {
+    var mudou = selects.some(function (sel) { return selAplicado[sel.id] !== sel.value; });
+    btnFiltrar.classList.toggle("is-pendente", mudou);
+    avisoPend.hidden = !mudou;
+  }
+
+  function chip(texto, aoLimpar) {
+    var b = d.createElement("button");
+    b.type = "button";
+    b.className = "chip-filtro";
+    b.setAttribute("data-evento", "remover_filtro");
+    b.setAttribute("aria-label", "Remover filtro " + texto);
+    b.appendChild(d.createTextNode(texto));
+    var x = d.createElement("span");
+    x.setAttribute("aria-hidden", "true");
+    x.appendChild(d.createTextNode("×"));
+    b.appendChild(x);
+    b.addEventListener("click", function () { aoLimpar(); aplicar(); });
+    return b;
+  }
+
+  function montarChips() {
+    cada(aplicados.querySelectorAll(".chip-filtro"), function (c) { c.remove(); });
+    var n = 0;
+
+    if (normal(busca.value)) {
+      aplicados.appendChild(chip("Busca: " + busca.value.trim(), function () { escrever(""); }));
+      n++;
+    }
+
+    selects.forEach(function (sel) {
+      var valor = selAplicado[sel.id];
+      if (!valor) { return; }
+      var texto = valor;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === valor) { texto = sel.options[i].text; break; }
+      }
+      aplicados.appendChild(chip(sel.getAttribute("data-nome") + ": " + texto, function () {
+        sel.value = "";
+        selAplicado[sel.id] = "";
+        pendenteOn();
+      }));
+      n++;
+    });
+
+    aplicados.hidden = n === 0;
+  }
+
+  function aplicar() {
+    var termo     = normal(busca.value);
+    var fim       = selAplicado["f-finalidade"] || "";
+    var tipo      = selAplicado["f-tipo"] || "";
+    var bairro    = selAplicado["f-bairro"] || "";
+    var quartos   = parseInt(selAplicado["f-quartos"], 10);
+    var banheiros = parseInt(selAplicado["f-banheiros"], 10);
+    var vagas     = parseInt(selAplicado["f-vagas"], 10);
+    var preco     = parseInt(selAplicado["f-preco"], 10);
+
+    /* a faixa de valor sabe de que finalidade ela é, então um teto de compra
+       não pode deixar passar um aluguel de R$ 1.650 só por ser menor */
+    var precoFim = "";
+    if (!isNaN(preco)) {
+      var selP = d.getElementById("f-preco");
+      for (var i = 0; i < selP.options.length; i++) {
+        if (selP.options[i].value === selAplicado["f-preco"]) {
+          precoFim = selP.options[i].getAttribute("data-fim") || "";
+          break;
+        }
+      }
+    }
+
+    var visiveis = 0;
+    IMOVEIS.forEach(function (im) {
+      var ok = casa(im, termo);
+      if (ok && fim    && im.finalidade !== fim)    { ok = false; }
+      if (ok && tipo   && im.tipo       !== tipo)   { ok = false; }
+      if (ok && bairro && im.bairro     !== bairro) { ok = false; }
+      if (ok && !isNaN(quartos)   && im.quartos   < quartos)   { ok = false; }
+      if (ok && !isNaN(banheiros) && im.banheiros < banheiros) { ok = false; }
+      if (ok && !isNaN(vagas)     && im.vagas     < vagas)     { ok = false; }
+      if (ok && !isNaN(preco)) {
+        if (precoFim && im.finalidade !== precoFim) { ok = false; }
+        else if (im.preco > preco) { ok = false; }
+      }
+      im.el.hidden = !ok;
+      if (ok) { visiveis++; }
+    });
+
+    contador.innerHTML = "<b>" + visiveis + "</b> " +
+      (visiveis === 1 ? "imóvel encontrado" : "imóveis encontrados");
+    vazio.hidden = visiveis !== 0;
+    grade.hidden = visiveis === 0;
+    montarChips();
+  }
+
+  function escrever(valor) {
+    campos.forEach(function (c) { if (c && c.value !== valor) { c.value = valor; } });
+  }
+
+  var espera = null;
+  campos.forEach(function (campo) {
+    if (!campo) { return; }
+    campo.addEventListener("input", function () {
+      escrever(campo.value);
+      if (espera) { clearTimeout(espera); }
+      espera = setTimeout(aplicar, 200);
+    });
+    campo.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter") { return; }
+      e.preventDefault();
+      if (espera) { clearTimeout(espera); }
+      aplicar();
+      d.getElementById("imoveis").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  selects.forEach(function (sel) { sel.addEventListener("change", pendenteOn); });
+  btnFiltrar.addEventListener("click", function () { congelarSelects(); aplicar(); });
+
+  d.getElementById("btn-buscar").addEventListener("click", function () {
+    if (espera) { clearTimeout(espera); }
+    aplicar();
+    d.getElementById("imoveis").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  limpar.addEventListener("click", function () {
+    escrever("");
+    selects.forEach(function (sel) { sel.value = ""; });
+    congelarSelects();
+    aplicar();
+  });
+
+  cada(d.querySelectorAll("[data-atalho]"), function (link) {
+    link.addEventListener("click", function () {
+      var alvo = link.getAttribute("data-atalho");
+      escrever("");
+      selects.forEach(function (sel) { sel.value = ""; });
+      d.getElementById("f-finalidade").value = (alvo === "comercial") ? "" : alvo;
+      d.getElementById("f-tipo").value       = (alvo === "comercial") ? "comercial" : "";
+      congelarSelects();
+      aplicar();
+    });
+  });
+
+  congelarSelects();
+  aplicar();
+
+  /* ---------- 2g. página do imóvel (troca só no DOM, sem mexer na URL:
+     dentro do iframe do artifact, mudar location.hash trava o carregamento) ---------- */
+  var lista       = d.getElementById("lista");
+  var fichas      = Array.prototype.slice.call(d.querySelectorAll("[data-detalhe]"));
+  var tituloBase  = d.title;
+  var scrollLista = 0;
+
+  function acima(el, tag) {
+    while (el && el !== d) {
+      if (el.tagName && el.tagName.toLowerCase() === tag) { return el; }
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  function abrirFicha(id) {
+    var alvo = d.getElementById(id);
+    if (!alvo) { return false; }
+    if (!lista.hidden) {
+      scrollLista = window.pageYOffset || d.documentElement.scrollTop || 0;
+    }
+    lista.hidden = true;
+    detalhes.hidden = false;
+    fichas.forEach(function (f) { f.hidden = (f !== alvo); });
+    var h2 = alvo.querySelector("h2");
+    d.title = (h2 ? h2.textContent + " · " : "") + tituloBase;
+    window.scrollTo(0, 0);
+    try { alvo.focus({ preventScroll: true }); } catch (err) { alvo.focus(); }
+    return true;
+  }
+
+  function fecharFicha() {
+    detalhes.hidden = true;
+    fichas.forEach(function (f) { f.hidden = true; });
+    lista.hidden = false;
+    d.title = tituloBase;
+  }
+
+  /* ---------- 2h. zoom da foto na página do imóvel ---------- */
+  var zoom      = d.getElementById("zoom");
+  var palco     = d.getElementById("zoom-palco");
+  var zContador = d.getElementById("zoom-contador");
+  var zAnt      = d.getElementById("zoom-ant");
+  var zProx     = d.getElementById("zoom-prox");
+  var zFechar   = d.getElementById("zoom-fechar");
+  var zFiguras  = [];
+  var zIndice   = 0;
+  var zOrigem   = null;
+
+  function mostrarZoom(i) {
+    var total = zFiguras.length;
+    zIndice = (i + total) % total;                    /* dá a volta nas pontas */
+    var original = zFiguras[zIndice].firstElementChild;
+    var copia = original.cloneNode(true);
+    /* setAttribute e não .className: em elemento SVG className é somente
+       leitura, e a atribuição lança erro em modo estrito */
+    copia.setAttribute("class", "zoom-midia");
+    copia.removeAttribute("loading");
+    /* a miniatura corta a imagem; ampliada ela tem que caber inteira */
+    if (copia.tagName.toLowerCase() === "svg") {
+      copia.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    }
+    palco.innerHTML = "";
+    palco.appendChild(copia);
+    zContador.textContent = (zIndice + 1) + " de " + total;
+    var uma = total < 2;
+    zAnt.hidden = uma;
+    zProx.hidden = uma;
+    zContador.hidden = uma;
+  }
+
+  function abrirZoom(figura) {
+    var galeria = acima(figura, "div");
+    while (galeria && galeria.className.indexOf("galeria") === -1) {
+      galeria = acima(galeria.parentNode, "div");
+    }
+    if (!galeria) { return; }
+    zFiguras = Array.prototype.slice.call(galeria.querySelectorAll("figure"));
+    zOrigem = figura;
+    mostrarZoom(zFiguras.indexOf(figura));
+    zoom.hidden = false;
+    d.body.style.overflow = "hidden";
+    zFechar.focus();
+  }
+
+  function fecharZoom() {
+    zoom.hidden = true;
+    palco.innerHTML = "";
+    d.body.style.overflow = "";
+    if (zOrigem) { zOrigem.focus(); zOrigem = null; }
+  }
+
+  zFechar.addEventListener("click", fecharZoom);
+  zAnt.addEventListener("click", function () { mostrarZoom(zIndice - 1); });
+  zProx.addEventListener("click", function () { mostrarZoom(zIndice + 1); });
+
+  /* clicar no fundo fecha; clicar na foto, não */
+  zoom.addEventListener("click", function (e) {
+    if (e.target === zoom || e.target === palco) { fecharZoom(); }
+  });
+
+  d.addEventListener("keydown", function (e) {
+    if (zoom.hidden) { return; }
+    if (e.key === "Escape")     { e.preventDefault(); fecharZoom(); return; }
+    if (e.key === "ArrowLeft")  { e.preventDefault(); mostrarZoom(zIndice - 1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); mostrarZoom(zIndice + 1); return; }
+    if (e.key !== "Tab") { return; }
+    /* prende o foco dentro do diálogo — é o que aria-modal promete */
+    var focaveis = [zFechar, zAnt, zProx].filter(function (b) { return !b.hidden; });
+    var i = focaveis.indexOf(d.activeElement);
+    e.preventDefault();
+    var passo = e.shiftKey ? -1 : 1;
+    focaveis[(i + passo + focaveis.length) % focaveis.length].focus();
+  });
+
+  /* arrastar o dedo troca a foto no celular */
+  var tX = 0, tY = 0;
+  zoom.addEventListener("touchstart", function (e) {
+    tX = e.changedTouches[0].clientX; tY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  zoom.addEventListener("touchend", function (e) {
+    var dx = e.changedTouches[0].clientX - tX;
+    var dy = e.changedTouches[0].clientY - tY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      mostrarZoom(zIndice + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  /* abre no clique e no Enter/espaço da figura */
+  d.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" && e.key !== " ") { return; }
+    var f = acima(d.activeElement, "figure");
+    if (f && f.parentNode && f.parentNode.className.indexOf("galeria") !== -1) {
+      e.preventDefault();
+      abrirZoom(f);
+    }
+  });
+
+  d.addEventListener("click", function (e) {
+    var fig = acima(e.target, "figure");
+    if (fig && fig.parentNode && fig.parentNode.className.indexOf("galeria") !== -1) {
+      abrirZoom(fig);
+      return;
+    }
+
+    var a = acima(e.target, "a");
+    if (!a) { return; }
+    var href = a.getAttribute("href") || "";
+
+    if (href.indexOf("#imovel-") === 0) {
+      if (abrirFicha(href.slice(1))) { e.preventDefault(); }
+      return;
+    }
+
+    if (a.hasAttribute("data-voltar")) {
+      e.preventDefault();
+      fecharFicha();
+      var volta = function () { window.scrollTo(0, scrollLista); };
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(function () { window.requestAnimationFrame(volta); });
+      } else { volta(); }
+      return;
+    }
+
+    if (href.charAt(0) === "#" && href.length > 1 && !detalhes.hidden) {
+      fecharFicha();
+      try {
+        var destino = d.querySelector(href);
+        if (destino) { e.preventDefault(); destino.scrollIntoView(); }
+      } catch (err) { /* hash que não é seletor válido */ }
+    }
+  });
+})();
+</script>
+

@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="alternate" hreflang="en" href="/en/">
+<link rel="alternate" hreflang="pt-BR" href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tatame Norte</title>
+<meta name="description" content="Jiu-jitsu, muay thai, judô infantil e treino feminino em [Bairro], [Cidade]. Marque sua aula experimental pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+<style>
+/* ===== Cores e fontes (troque aqui para mudar o site inteiro) ===== */
+:root{
+  color-scheme: dark;
+  --preto:#0E0D0D;
+  --grafite:#1A1818;
+  --linha:#2A2626;
+  --vermelho:#C8160F;
+  --vermelho-faixa:#A3120E;
+  --vermelho-escuro:#5E0907;
+  --vermelho-vivo:#E0332B;
+  --branco:#FFFFFF;
+  --rosado:#FBE9E7;
+  --cinza-claro:#D8CFCD;
+  --cinza:#BDB5B3;
+  --cinza-escuro:#5A5352;
+  --papel:#F6F1F0;
+  --papel-2:#E6DFDD;
+  --amarelo:#D9A21B;
+  --display:'Anton', Impact, 'Arial Narrow', sans-serif;
+  --texto:'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --rotulo:'Barlow Semi Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --gutter:20px;
+  --max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--preto);color:var(--branco);font-family:var(--texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{text-wrap:balance}
+:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+.wrap{width:100%;max-width:calc(var(--max) + 2*var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+.titulo{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,72px);line-height:1;margin:0;letter-spacing:.5px}
+.sub{color:var(--cinza);margin:0;max-width:44ch}
+svg.seta{display:block;flex-shrink:0}
+
+/* Botões */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:4px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .15s ease, background-color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-branco{background:var(--branco);color:var(--preto)}
+.btn-branco:hover{background:var(--rosado)}
+.btn-contorno{border:2px solid var(--preto);color:var(--preto);min-height:52px}
+.btn-contorno:hover{background:var(--preto);color:var(--branco)}
+.link{font-weight:600;text-underline-offset:3px}
+
+/* Cabeçalho */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--preto);border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+.marca span{font-family:var(--display);font-size:24px;letter-spacing:1px}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a.item{display:none;font-family:var(--rotulo);font-weight:700;font-size:15px;letter-spacing:1.5px;text-decoration:none;text-transform:uppercase}
+.nav a.item:hover{color:var(--vermelho-vivo)}
+.wa-topo{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:44px;height:44px;border-radius:4px;background:var(--vermelho);color:var(--branco);text-decoration:none;font-weight:700}
+.wa-topo .rot{display:none}
+.lang{font-family:var(--rotulo);font-weight:700;font-size:15px;letter-spacing:1.5px;text-decoration:none;color:var(--cinza);padding:10px 2px}
+.lang:hover{color:var(--vermelho-vivo)}
+.wa-topo:hover{background:var(--vermelho-vivo)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 38%, var(--vermelho) 0%, #9E100C 52%, var(--vermelho-escuro) 100%);padding-block:56px 84px}
+.hero .wrap{display:grid;gap:28px;align-items:center}
+.hero-texto{display:flex;flex-direction:column;gap:22px;text-align:center;align-items:center}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,10vw,132px);line-height:.92;margin:0;letter-spacing:1px}
+.modal-linha{margin:0;font-family:var(--rotulo);font-weight:700;font-size:clamp(13px,1.5vw,20px);letter-spacing:.22em;text-transform:uppercase}
+.hero p.chamada{margin:0;font-size:clamp(17px,1.6vw,20px);color:var(--rosado);max-width:34em}
+.hero-acoes{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
+.hero-acoes .btn{width:100%}
+.seta-canto{position:absolute}
+.seta-canto.a{top:20px;right:var(--gutter)}
+.seta-canto.b{bottom:20px;left:var(--gutter)}
+
+/* Foto (placeholder até chegarem as fotos reais) */
+.foto{margin:0;display:flex;align-items:flex-end;padding:14px;background-color:var(--grafite);background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 14px);color:var(--cinza-claro);font-size:13px;min-height:170px;overflow:hidden;position:relative}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .foto{min-height:260px;order:-1;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.hero .foto img{object-position:80% 40%}
+.galeria .grande img{object-position:45% 50%}
+
+/* Faixa de informações */
+.info{border-bottom:1px solid var(--linha)}
+.info .wrap{display:grid;gap:18px;padding-block:28px}
+.info-item{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.45}
+.info-item span{color:var(--cinza)}
+
+/* Seções */
+.secao{padding-block:64px}
+.cabeca{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 40px;margin-bottom:28px}
+
+/* Modalidades */
+.modalidades{display:grid;gap:12px}
+.modalidade{display:flex;flex-direction:column;gap:10px;padding:22px 22px 26px;background:var(--grafite);border-top:4px solid var(--vermelho)}
+.modalidade .idade{font-size:14px;font-weight:600;color:var(--cinza)}
+.modalidade h3{margin:0;font-family:var(--display);font-weight:400;font-size:28px;letter-spacing:.5px}
+.modalidade p{margin:0;color:var(--cinza-claro);font-size:15.5px}
+
+/* Horários */
+.horarios{background:var(--vermelho-faixa)}
+.horarios .sub{color:var(--rosado)}
+.titulo-seta{display:flex;align-items:center;gap:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;border-radius:4px;border:2px solid #E08A85;background:transparent;color:var(--branco);font-family:var(--rotulo);font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--preto);border-color:var(--preto)}
+.chip:hover{border-color:var(--branco)}
+.dias{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.dias .chip{padding:0;font-size:14px}
+.filtros{display:none}
+.lista-dia{display:flex;flex-direction:column;gap:8px}
+.semana{display:none}
+.aula{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:4px;background:var(--branco);color:var(--preto);transition:opacity .2s ease}
+.aula .hora{font-family:var(--display);font-size:24px;width:66px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.aula .nome{display:flex;flex-direction:column;flex-grow:1}
+.aula .nome strong{font-size:16px}
+.aula .nome span{font-size:14px;color:var(--cinza-escuro)}
+.aula .cor{width:12px;height:12px;flex-shrink:0}
+.aula.apagada{opacity:.3}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:14px;color:var(--rosado)}
+.legenda span{display:inline-flex;align-items:center;gap:8px}
+.legenda i{width:12px;height:12px;display:inline-block;outline:1px solid rgba(255,255,255,.35)}
+.aviso{margin:14px 0 0;font-size:13px;color:var(--rosado)}
+
+/* Primeira aula */
+.passos{display:grid;gap:28px;margin:0;padding:0;list-style:none}
+.passo{display:flex;gap:16px}
+.passo .num{font-family:var(--display);font-size:40px;line-height:1;color:var(--vermelho-vivo);width:48px;flex-shrink:0}
+.passo h3{margin:0 0 6px;font-size:19px}
+.passo p{margin:0;color:var(--cinza-claro);font-size:15.5px}
+
+/* Galeria */
+.galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.galeria .grande{grid-column:span 2;min-height:210px}
+.galeria .larga{grid-column:span 2}
+
+/* Onde fica */
+.onde{background:var(--papel);color:var(--preto)}
+.onde .wrap{display:grid;gap:22px}
+.onde address{font-style:normal;font-size:17px;line-height:1.6}
+.onde address span{color:var(--cinza-escuro)}
+.mapa{min-height:230px;display:flex;align-items:center;justify-content:center;background:var(--papel-2);color:var(--cinza-escuro);font-size:14px;text-align:center;padding:16px}
+.onde .btn{align-self:flex-start}
+
+/* Chamada final */
+.final{position:relative;background:radial-gradient(ellipse at 50% 45%, var(--vermelho) 0%, #9E100C 50%, var(--vermelho-escuro) 100%);padding-block:80px 72px;text-align:center}
+.final .wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.final h2{font-family:var(--display);font-weight:400;font-size:clamp(50px,7vw,96px);line-height:.96;margin:0;max-width:11em}
+.final p{margin:0;color:var(--rosado);max-width:36em}
+.final .btn{width:100%;max-width:420px}
+.fone{font-size:15px;color:var(--rosado);user-select:all}
+
+/* Rodapé */
+.rodape .wrap{display:flex;flex-direction:column;gap:10px;padding-block:36px;color:var(--cinza);font-size:14px}
+.rodape .marca-txt{font-family:var(--display);font-size:26px;letter-spacing:1px;color:var(--branco)}
+.rodape small{color:#8C8483;font-size:12px}
+
+/* ===== Telas maiores ===== */
+@media (min-width:720px){
+  :root{--gutter:40px}
+  .info .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+  .modalidades{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .passo{flex-direction:column;gap:12px}
+  .passo .num{font-size:64px;width:auto}
+  .galeria{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,240px);gap:8px}
+  .galeria .grande{grid-row:span 2}
+  .galeria .larga{grid-column:span 2}
+  .onde .wrap{grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:56px}
+  .mapa{min-height:340px}
+  .rodape .wrap{flex-direction:row;justify-content:space-between;align-items:flex-start}
+  .rodape .dir{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+}
+@media (min-width:980px){
+  .modal-linha{letter-spacing:.4em}
+  :root{--gutter:64px}
+  .nav a.item{display:inline}
+  .wa-topo{width:auto;padding:0 20px;height:46px}
+  .wa-topo .rot{display:inline}
+  .hero{padding-block:96px 110px}
+  .hero .wrap{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px}
+  .hero-texto{text-align:left;align-items:flex-start}
+  .hero-acoes{flex-direction:row;width:auto;gap:28px}
+  .hero-acoes .btn{width:auto}
+  .hero .foto{order:0;min-height:520px}
+  .seta-canto.a{top:32px}
+  .seta-canto.b{bottom:32px}
+  .secao{padding-block:100px}
+  .modalidades{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .dias,.lista-dia{display:none}
+  .filtros{display:flex}
+  .semana{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+  .semana .col{display:flex;flex-direction:column;gap:10px}
+  .semana .dia{padding-bottom:12px;border-bottom:2px solid var(--preto);font-family:var(--display);font-size:24px;letter-spacing:.5px}
+  .semana .aula{flex-direction:column;align-items:stretch;gap:2px}
+  .semana .aula .linha{display:flex;align-items:center;justify-content:space-between}
+  .semana .aula .hora{width:auto}
+  .semana .aula .nome strong{font-size:15px}
+  .semana .aula .nome span{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="setas" viewBox="0 0 72 28"><path d="M0 0h10l12 14-12 14H0l12-14z M22 0h10l12 14-12 14H22l12-14z M44 0h10l12 14-12 14H44l12-14z"></path></symbol>
+  <symbol id="setas-vazadas" viewBox="0 0 72 28"><path d="M1 1h9l12 13-12 13H1l12-13z M23 1h9l12 13-12 13h-9l12-13z M45 1h9l12 13-12 13h-9l12-13z" fill="none" stroke="currentColor" stroke-width="1.6"></path></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio">
+      <svg class="seta" width="30" height="20" viewBox="0 0 44 28" aria-hidden="true"><path d="M0 0h10l12 14-12 14H0l12-14z M22 0h10l12 14-12 14H22l12-14z" fill="#C8160F"></path></svg>
+      <span>TATAME NORTE</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a class="item" href="#modalidades">Modalidades</a>
+      <a class="item" href="#horarios">Horários</a>
+      <a class="item" href="#onde">Onde fica</a>
+      <a class="lang" href="/en/" hreflang="en" aria-label="View this site in English">EN</a>
+      <a class="wa-topo" data-wa href="https://wa.me/55XXXXXXXXXXX" aria-label="Falar no WhatsApp">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"></use></svg><span class="rot">WhatsApp</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <svg class="seta-canto a" width="96" height="36" style="color:#0E0D0D" aria-hidden="true"><use href="#setas-vazadas"></use></svg>
+    <div class="wrap">
+      <div class="hero-texto">
+        <h1>TATAME NORTE</h1>
+        <p class="modal-linha">Jiu-jitsu · Muay thai · Judô</p>
+        <p class="chamada">Turmas para quem nunca treinou, para graduados e para crianças a partir de 5 anos, em [Bairro]. Marque uma aula experimental e conheça o tatame.</p>
+        <div class="hero-acoes">
+          <a class="btn btn-branco" data-wa href="https://wa.me/55XXXXXXXXXXX">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"></use></svg>Marcar aula experimental
+          </a>
+          <a class="link" href="#horarios">Ver horários das turmas</a>
+        </div>
+      </div>
+      <figure class="foto"><img src="fotos/muay-thai-chute.webp" alt="Atleta de muay thai dando um chute alto no tatame" width="1200" height="675" fetchpriority="high"></figure>
+    </div>
+    <svg class="seta-canto b" width="96" height="36" fill="#0E0D0D" aria-hidden="true"><use href="#setas"></use></svg>
+  </section>
+
+  <section class="info" aria-label="Informações rápidas">
+    <div class="wrap">
+      <div class="info-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E0332B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        <div><strong>Seg a sex, 7h às 21h30</strong><br><span>Sábado, 9h às 12h</span></div>
+      </div>
+      <div class="info-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E0332B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+        <div><strong>[Rua Exemplo, 000]</strong><br><span>[Bairro], [Cidade]</span></div>
+      </div>
+      <div class="info-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E0332B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>
+        <div><strong>Mensalidade a partir de [R$ 000]</strong><br><span>Sem taxa de matrícula [confirmar]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="modalidades">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 class="titulo">MODALIDADES</h2>
+        <p class="sub">Cada turma tem o nível escrito no horário. Na dúvida, pergunte no WhatsApp.</p>
+      </div>
+      <div class="modalidades">
+        <article class="modalidade"><span class="idade">14+ anos</span><h3>JIU-JITSU</h3><p>Luta de solo, com kimono. A turma de iniciantes é separada, então dá para começar do zero no seu ritmo.</p></article>
+        <article class="modalidade"><span class="idade">14+ anos</span><h3>MUAY THAI</h3><p>Técnica em pé e condicionamento: socos, chutes, joelhadas e cotoveladas. Sparring só para quem quiser.</p></article>
+        <article class="modalidade"><span class="idade">5 a 12 anos</span><h3>JUDÔ INFANTIL</h3><p>Aprender a cair, a respeitar o colega e a gastar energia do jeito certo. Aula pensada para a idade.</p></article>
+        <article class="modalidade"><span class="idade">14+ anos</span><h3>TREINO FEMININO</h3><p>Jiu-jitsu só para mulheres, com base técnica e foco em defesa pessoal.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao horarios" id="horarios">
+    <div class="wrap">
+      <div class="cabeca">
+        <div>
+          <div class="titulo-seta"><h2 class="titulo">HORÁRIOS</h2><svg class="seta" width="72" height="28" fill="#0E0D0D" aria-hidden="true"><use href="#setas"></use></svg></div>
+          <p class="sub" id="dica-horarios">Toque no dia para ver as turmas.</p>
+        </div>
+        <div class="chips filtros" role="group" aria-label="Destacar modalidade" id="filtros"></div>
+      </div>
+      <div class="dias" role="group" aria-label="Dia da semana" id="dias"></div>
+      <div class="lista-dia" id="lista-dia" aria-live="polite"></div>
+      <div class="semana" id="semana"></div>
+      <div class="legenda" id="legenda"></div>
+      <p class="aviso">Horários de exemplo. [Confirmar grade com o professor responsável.]</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="cabeca"><h2 class="titulo">A PRIMEIRA AULA</h2></div>
+      <ol class="passos">
+        <li class="passo"><span class="num" aria-hidden="true">01</span><div><h3>Chame no WhatsApp</h3><p>Diga a modalidade e o melhor dia. A gente indica a turma certa para o seu nível.</p></div></li>
+        <li class="passo"><span class="num" aria-hidden="true">02</span><div><h3>Venha com roupa de treino</h3><p>Camiseta e bermuda sem zíper resolvem. Para o jiu-jitsu, [temos kimono para emprestar na primeira aula].</p></div></li>
+        <li class="passo"><span class="num" aria-hidden="true">03</span><div><h3>Treine com a turma</h3><p>O professor acompanha de perto quem está começando. No fim, você decide se quer continuar.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao" style="padding-top:0">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 class="titulo">O ESPAÇO</h2>
+        <a class="link" href="https://instagram.com/">Mais fotos no Instagram @[perfil]</a>
+      </div>
+      <div class="galeria">
+        <figure class="foto grande"><img src="fotos/jiu-jitsu.webp" alt="Professor acompanhando dois alunos treinando jiu-jitsu no tatame" width="1000" height="667" loading="lazy"></figure>
+        <figure class="foto"><img src="fotos/judo-infantil.webp" alt="Crianças de kimono treinando judô com o professor" width="720" height="480" loading="lazy"></figure>
+        <figure class="foto">[Foto: sacos de pancada]</figure>
+        <figure class="foto larga">[Foto: fachada e recepção]</figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao onde" id="onde">
+    <div class="wrap">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <h2 class="titulo">ONDE FICA</h2>
+        <address><strong>[Rua Exemplo, 000] – [Bairro]</strong><br>[Cidade] – [UF], [CEP]<br><span>Perto de [referência: estação, mercado, praça]</span></address>
+        <a class="btn btn-contorno" href="https://maps.google.com/?q=[endereço]">Abrir no Google Maps</a>
+      </div>
+      <!-- No site publicado: colar aqui o <iframe> de incorporação do Google Maps -->
+      <div class="mapa">[Mapa do Google incorporado]</div>
+    </div>
+  </section>
+
+  <section class="final">
+    <svg class="seta-canto a" width="96" height="36" style="color:#0E0D0D" aria-hidden="true"><use href="#setas-vazadas"></use></svg>
+    <div class="wrap">
+      <h2>O PRIMEIRO TREINO É O MAIS DIFÍCIL DE MARCAR</h2>
+      <p>Mande uma mensagem dizendo a modalidade. A resposta vem no mesmo dia, em horário de funcionamento.</p>
+      <a class="btn btn-branco" data-wa href="https://wa.me/55XXXXXXXXXXX">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"></use></svg>Chamar no WhatsApp
+      </a>
+      <span class="fone">(00) 00000-0000</span>
+    </div>
+    <svg class="seta-canto b" width="96" height="36" fill="#0E0D0D" aria-hidden="true"><use href="#setas"></use></svg>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span class="marca-txt">TATAME NORTE</span>
+      <span>Jiu-jitsu, muay thai e judô infantil em [Bairro], [Cidade].</span>
+    </div>
+    <div class="dir">
+      <a href="https://instagram.com/" style="color:#FFFFFF">Instagram @[perfil]</a>
+      <small>Site por Veyroni</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== Dados do cliente: edite aqui ===== */
+var WHATSAPP = '55XXXXXXXXXXX'; // DDI + DDD + número, só dígitos
+var MENSAGEM = 'Olá! Vi o site e quero marcar uma aula experimental.';
+
+var MODALIDADES = {
+  jj: { nome: 'Jiu-jitsu',       cor: '#0E0D0D' },
+  mt: { nome: 'Muay thai',       cor: '#C8160F' },
+  jd: { nome: 'Judô infantil',   cor: '#D9A21B' },
+  fe: { nome: 'Treino feminino', cor: '#8C8483' },
+  tl: { nome: 'Treino livre',    cor: '#D8CFCD' }
+};
+// [hora, modalidade, nível]
+var SEG_QUA_SEX = [['07:00','jj','Todos os níveis'],['12:15','mt','Todos os níveis'],['17:30','jd','5 a 12 anos'],['19:00','jj','Iniciantes'],['20:15','mt','Todos os níveis']];
+var TER_QUI     = [['07:00','mt','Todos os níveis'],['17:30','jd','5 a 12 anos'],['19:00','fe','Jiu-jitsu, todos os níveis'],['20:15','jj','Graduados']];
+var SABADO      = [['09:00','jd','5 a 12 anos'],['10:00','tl','Todas as faixas']];
+var SEMANA = [
+  { id:'seg', curto:'SEG', longo:'SEGUNDA', aulas:SEG_QUA_SEX },
+  { id:'ter', curto:'TER', longo:'TERÇA',   aulas:TER_QUI },
+  { id:'qua', curto:'QUA', longo:'QUARTA',  aulas:SEG_QUA_SEX },
+  { id:'qui', curto:'QUI', longo:'QUINTA',  aulas:TER_QUI },
+  { id:'sex', curto:'SEX', longo:'SEXTA',   aulas:SEG_QUA_SEX },
+  { id:'sab', curto:'SÁB', longo:'SÁBADO',  aulas:SABADO }
+];
+
+/* ===== Links de WhatsApp ===== */
+(function(){
+  var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(MENSAGEM);
+  document.querySelectorAll('[data-wa]').forEach(function(a){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; });
+})();
+
+/* ===== Quadro de horários ===== */
+(function(){
+  var hoje = new Date().getDay(); // 0 = domingo
+  var diaAtual = SEMANA[Math.min(Math.max(hoje - 1, 0), 5)].id;
+  var filtro = 'all';
+
+  function el(tag, cls, html){ var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function cartao(a){
+    var m = MODALIDADES[a[1]];
+    var c = el('div', 'aula' + (filtro !== 'all' && filtro !== a[1] ? ' apagada' : ''));
+    c.innerHTML =
+      '<div class="linha" style="display:contents"><span class="hora">' + a[0] + '</span></div>' +
+      '<span class="nome"><strong>' + m.nome + '</strong><span>' + a[2] + '</span></span>' +
+      '<span class="cor" style="background:' + m.cor + '" aria-hidden="true"></span>';
+    return c;
+  }
+  function cartaoSemana(a){
+    var m = MODALIDADES[a[1]];
+    var c = el('div', 'aula' + (filtro !== 'all' && filtro !== a[1] ? ' apagada' : ''));
+    c.innerHTML =
+      '<div class="linha"><span class="hora">' + a[0] + '</span><span class="cor" style="background:' + m.cor + '" aria-hidden="true"></span></div>' +
+      '<span class="nome"><strong>' + m.nome + '</strong><span>' + a[2] + '</span></span>';
+    return c;
+  }
+
+  var dias = document.getElementById('dias');
+  var lista = document.getElementById('lista-dia');
+  var semana = document.getElementById('semana');
+  var filtros = document.getElementById('filtros');
+  var legenda = document.getElementById('legenda');
+
+  function desenhaDias(){
+    dias.innerHTML = '';
+    SEMANA.forEach(function(d){
+      var b = el('button', 'chip', d.curto);
+      b.type = 'button'; b.id = 'dia-' + d.id;
+      b.setAttribute('aria-pressed', d.id === diaAtual ? 'true' : 'false');
+      b.setAttribute('aria-label', d.longo.toLowerCase());
+      b.addEventListener('click', function(){ diaAtual = d.id; desenhaDias(); desenhaLista(); });
+      dias.appendChild(b);
+    });
+  }
+  function desenhaLista(){
+    lista.innerHTML = '';
+    SEMANA.filter(function(d){ return d.id === diaAtual; })[0].aulas.forEach(function(a){ lista.appendChild(cartao(a)); });
+  }
+  function desenhaSemana(){
+    semana.innerHTML = '';
+    SEMANA.forEach(function(d){
+      var col = el('div', 'col');
+      col.appendChild(el('div', 'dia', d.longo));
+      d.aulas.forEach(function(a){ col.appendChild(cartaoSemana(a)); });
+      semana.appendChild(col);
+    });
+  }
+  function desenhaFiltros(){
+    filtros.innerHTML = '';
+    [['all','Todas'],['jj','Jiu-jitsu'],['mt','Muay thai'],['jd','Judô infantil'],['fe','Treino feminino']].forEach(function(f){
+      var b = el('button', 'chip', f[1]);
+      b.type = 'button'; b.id = 'filtro-' + f[0];
+      b.setAttribute('aria-pressed', f[0] === filtro ? 'true' : 'false');
+      b.addEventListener('click', function(){ filtro = f[0]; desenhaFiltros(); desenhaSemana(); });
+      filtros.appendChild(b);
+    });
+  }
+  Object.keys(MODALIDADES).forEach(function(k){
+    var s = el('span', null, '<i style="background:' + MODALIDADES[k].cor + '"></i>' + MODALIDADES[k].nome);
+    legenda.appendChild(s);
+  });
+
+  var dica = document.getElementById('dica-horarios');
+  var mq = window.matchMedia('(min-width: 980px)');
+  function ajustaDica(){ dica.textContent = mq.matches ? 'Escolha uma modalidade para destacar as turmas dela.' : 'Toque no dia para ver as turmas.'; }
+  if (mq.addEventListener) mq.addEventListener('change', ajustaDica);
+
+  desenhaDias(); desenhaLista(); desenhaSemana(); desenhaFiltros(); ajustaDica();
+})();
+</script>
+</body>
+</html>
