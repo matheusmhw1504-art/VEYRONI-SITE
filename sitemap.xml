@@ -10,4 +10,10 @@
       <image:loc>https://veyronico.vercel.app/og-image.png</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://veyronico.vercel.app/en/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
