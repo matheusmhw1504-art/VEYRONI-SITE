@@ -230,7 +230,9 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 @media (min-width:720px){.nav-links{display:flex}}
 .nav-links a{color:var(--cream);padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
 .nav-links a:hover{background:var(--gold-soft);color:var(--gold)}
-.nav-right{display:flex;align-items:center;gap:4px}
+.nav-right{display:flex;align-items:center;gap:6px}
+.lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--border);color:var(--cream);font-size:12.5px;font-weight:700;letter-spacing:.08em;transition:border-color .25s,color .25s}
+.lang-switch:hover{border-color:var(--gold);color:var(--gold)}
 
 .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:linear-gradient(90deg,#8a7020,var(--gold),#fff3c4);transform-origin:0 0;transform:scaleX(0)}
 
@@ -338,6 +340,7 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 .modelo-card{display:flex;flex-direction:column;color:var(--cream);border-radius:20px;border:1px solid var(--border);background:var(--panel);position:relative;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .5s;overflow:hidden}
 .modelo-card:hover{color:var(--cream);border-color:rgba(212,175,55,.6);transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(212,175,55,.45)}
 .modelo-preview{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111;border-bottom:1px solid var(--border)}
+.modelo-preview iframe{position:absolute;top:0;left:0;width:400%;height:400%;border:0;transform:scale(.25);transform-origin:0 0;pointer-events:none;background:#1a1a1a}
 .mp-desk{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .modelo-card:hover .mp-desk{transform:scale(1.04)}
 .mp-phone{position:absolute;right:12px;bottom:-18px;width:23%;aspect-ratio:9/19;border-radius:12px;border:3px solid #111;outline:1px solid #4a4a4a;overflow:hidden;box-shadow:0 18px 30px -10px rgba(0,0,0,.85);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -571,6 +574,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
       <a href="#" class="btn nav-cta-mobile wa-link" data-evento="cta-menu-mobile">Pedir orçamento</a>
     </div>
     <div class="nav-right">
+      <a href="/en/" class="lang-switch" hreflang="en" lang="en" aria-label="View this site in English">EN</a>
       <a href="#" class="btn btn-sm wa-link" data-evento="cta-nav">Pedir orçamento</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -594,9 +598,9 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
         <div class="laptop">
           <div class="laptop-body">
             <div class="screen screen-real">
-              <img class="shot s1" src="img/modelos/barbearia-coragem-d.webp" alt="Site modelo Barbearia Coragem" width="960" height="600">
-              <img class="shot s2" src="img/modelos/chama-burger-d.webp" alt="Site modelo Chama Burger" width="960" height="600">
-              <img class="shot s3" src="img/modelos/jardim-vivo-d.webp" alt="Site modelo Jardim Vivo Floricultura" width="960" height="600">
+              <img class="shot s1" src="/img/modelos/barbearia-coragem-d.webp" alt="Site modelo Barbearia Coragem" width="960" height="600">
+              <img class="shot s2" src="/img/modelos/chama-burger-d.webp" alt="Site modelo Chama Burger" width="960" height="600">
+              <img class="shot s3" src="/img/modelos/jardim-vivo-d.webp" alt="Site modelo Jardim Vivo Floricultura" width="960" height="600">
             </div>
           </div>
           <div class="laptop-base"></div>
@@ -604,9 +608,9 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
         <div class="phone">
           <div class="phone-body">
             <div class="phone-screen phone-real">
-              <img class="shot s1" src="img/modelos/barbearia-coragem-m.webp" alt="" width="540" height="1169">
-              <img class="shot s2" src="img/modelos/chama-burger-m.webp" alt="" width="540" height="1169">
-              <img class="shot s3" src="img/modelos/jardim-vivo-m.webp" alt="" width="540" height="1169">
+              <img class="shot s1" src="/img/modelos/barbearia-coragem-m.webp" alt="" width="540" height="1169">
+              <img class="shot s2" src="/img/modelos/chama-burger-m.webp" alt="" width="540" height="1169">
+              <img class="shot s3" src="/img/modelos/jardim-vivo-m.webp" alt="" width="540" height="1169">
             </div>
           </div>
         </div>
@@ -799,7 +803,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
 <footer>
   <div class="footer-inner">
     <span class="footer-brand">VEYRONI</span>
-    <span>Jaraguá do Sul (SC) · WhatsApp (47) 99641-9450 · seg a sex 13h–18h, sáb 10h–15h</span>
+    <span>Jaraguá do Sul (SC) · WhatsApp (47) 99641-9450 · seg a sex 13h–18h, sáb 10h–15h · <a href="/en/" hreflang="en" lang="en">English</a></span>
   </div>
 </footer>
 
@@ -865,8 +869,8 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
     a.setAttribute('data-evento', 'modelo-' + m.slug);
     a.innerHTML =
       '<div class="modelo-preview">' +
-        '<img class="mp-desk" src="img/modelos/' + m.slug + '-d.webp" alt="Site modelo ' + m.nome + '" loading="lazy" width="960" height="600">' +
-        '<span class="mp-phone"><img src="img/modelos/' + m.slug + '-m.webp" alt="" loading="lazy" width="540" height="1169"></span>' +
+        '<img class="mp-desk" src="/img/modelos/' + m.slug + '-d.webp" alt="Site modelo ' + m.nome + '" loading="lazy" width="960" height="600">' +
+        '<span class="mp-phone"><img src="/img/modelos/' + m.slug + '-m.webp" alt="" loading="lazy" width="540" height="1169"></span>' +
         '<span class="mp-live">Ver ao vivo ↗</span>' +
       '</div>' +
       '<div class="modelo-body">' +
@@ -894,6 +898,25 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
       '<div class="modelo-link">Falar no WhatsApp →</div>' +
     '</div>';
   modelosGrid.appendChild(extra);
+
+  // Se algum print não carregar, mostra o site ao vivo no lugar (nunca fica quebrado)
+  modelosGrid.querySelectorAll('.modelo-card[data-cat]').forEach(function(card){
+    var img = card.querySelector('.mp-desk');
+    if (!img) return;
+    function fallback(){
+      var pv = card.querySelector('.modelo-preview');
+      if (pv.getAttribute('data-fb')) return;
+      pv.setAttribute('data-fb','1');
+      pv.innerHTML = '<iframe src="' + card.getAttribute('href') + '" title="" loading="lazy" scrolling="no" tabindex="-1"></iframe><span class="mp-live">Ver ao vivo ↗</span>';
+    }
+    img.addEventListener('error', fallback);
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fallback();
+  });
+  document.querySelectorAll('.shot').forEach(function(im){
+    function hide(){ im.style.display='none'; }
+    im.addEventListener('error', hide);
+    if (im.complete && im.naturalWidth === 0) hide();
+  });
 
   var chipsEl = document.getElementById('chips');
   cats.forEach(function(c, i){
