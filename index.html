@@ -97,6 +97,26 @@
       },
       "sameAs": [
         "https://instagram.com/veyroni.co"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "13:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "15:00"
+        }
       ]
     },
     {
@@ -122,42 +142,58 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Como funciona para ter um site com a Veyroni?",
+          "name": "Quanto custa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "É simples: você conversa com a gente pelo WhatsApp e conta sobre o seu negócio, nós criamos um site profissional e responsivo, publicamos no ar e continuamos cuidando para que tudo siga funcionando."
+            "text": "Cada negócio precisa de uma coisa. Conta pra gente no WhatsApp e você recebe o orçamento sem compromisso."
           }
         },
         {
           "@type": "Question",
-          "name": "O site funciona bem no celular?",
+          "name": "Quanto tempo leva pra ficar pronto?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim. Todos os sites que criamos são responsivos, ou seja, se ajustam a celulares, tablets e computadores."
+            "text": "Depende do tamanho do site. O prazo vem junto com o orçamento."
           }
         },
         {
           "@type": "Question",
-          "name": "Preciso de um site se já tenho Instagram?",
+          "name": "Serve pro meu tipo de negócio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "O Instagram ajuda a divulgar, mas é no Google que muita gente procura por produtos e serviços. Um site próprio aparece nessas buscas, passa mais confiança e reúne o que o cliente precisa saber (serviços, localização e contato) em um endereço que é seu."
+            "text": "Se você atende cliente, serve: lanchonete, loja, academia, barbearia, salão, clínica e por aí vai."
           }
         },
         {
           "@type": "Question",
-          "name": "Para quais tipos de negócio a Veyroni cria sites?",
+          "name": "Vou precisar fazer reunião ou ligação?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Criamos sites para pequenos negócios, como lojas, lanchonetes e restaurantes, barbearias, salões de beleza, academias, clínicas e consultórios, imobiliárias e muito mais. No nosso portfólio você vê exemplos de vários segmentos."
+            "text": "Não. É tudo pelo WhatsApp, no seu tempo."
           }
         },
         {
           "@type": "Question",
-          "name": "Como peço um site ou tiro dúvidas?",
+          "name": "Posso pedir mudanças depois que o site estiver no ar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Chame a gente no WhatsApp pelo (47) 99641-9450 ou no Instagram @veyroni.co. Respondemos rapidinho."
+            "text": "Pode. É pra isso que existe a manutenção mensal. Manda mensagem e a gente atualiza."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O domínio é meu mesmo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "É. Fica no seu nome, mesmo se um dia você cancelar a manutenção."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como é o pagamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A gente combina as formas de pagamento junto com o orçamento."
           }
         }
       ]
@@ -185,7 +221,6 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--black);color:var(--cream);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
-a:hover{color:var(--gold-hover)}
 ::selection{background:var(--gold);color:var(--black)}
 img,svg{display:block;max-width:100%}
 button{font:inherit}
@@ -194,15 +229,15 @@ button{font:inherit}
 h1,h2,h3{margin:0}
 h1{font-family:Poppins,sans-serif;font-weight:800;letter-spacing:-.045em;font-size:clamp(44px,7vw,84px);line-height:1.02;text-wrap:balance}
 h2{font-family:Poppins,sans-serif;font-weight:800;letter-spacing:-.045em;font-size:clamp(32px,4.4vw,52px);line-height:1.08;text-wrap:balance}
-em.shine{background:linear-gradient(100deg,var(--gold) 20%,#fff3c4 45%,var(--gold) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;padding:0 .12em 0 .02em;animation:shine 4.2s ease-in-out infinite alternate}
+em.shine{background:linear-gradient(100deg,var(--gold) 20%,#fff3c4 45%,var(--gold) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;padding:0 .12em 0 .02em;animation:shine 2.4s cubic-bezier(.23,1,.32,1) .6s 1 both}
 .section{padding:96px 24px}
 @media (min-width:768px){.section{padding:112px 24px}}
 .wrap{max-width:1080px;margin:0 auto}
 .wrap-narrow{max-width:820px;margin:0 auto}
 
 /* ===== reveal-on-scroll (só dispara depois que o usuário rolar) ===== */
-[data-reveal]{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease}
-[data-reveal].is-in{opacity:1;transform:none;filter:blur(0)}
+[data-reveal]{opacity:0;transform:translateY(12px);transition:opacity .5s cubic-bezier(.23,1,.32,1),transform .5s cubic-bezier(.23,1,.32,1)}
+[data-reveal].is-in{opacity:1;transform:none}
 
 /* ===== animações contínuas ===== */
 @keyframes shine{0%{background-position:120% 0}100%{background-position:-20% 0}}
@@ -215,13 +250,12 @@ em.shine{background:linear-gradient(100deg,var(--gold) 20%,#fff3c4 45%,var(--gol
 @keyframes bubbleIn{0%,8%{opacity:0;transform:translateY(12px) scale(.92)}14%,80%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(-8px)}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--black);padding:18px 34px;border-radius:999px;font-weight:600;font-size:17px;border:none;cursor:pointer;box-shadow:0 14px 30px -12px rgba(212,175,55,.35);transition:transform .3s ease,box-shadow .3s ease,background .3s ease}
-.btn:hover{background:var(--gold-hover);color:var(--black);transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(212,175,55,.6)}
 .btn.btn-sm{padding:10px 16px;font-size:14px;box-shadow:none}
-.btn.btn-pulse{animation:pulseRing 2.2s ease-out infinite}
+.btn.btn-pulse{animation:pulseRing 2.2s ease-out 1.2s 3}
 .btn.btn-block{margin-top:32px;align-self:flex-start;padding:15px 26px;font-size:16px}
 
 /* ===== header / nav ===== */
-.nav{position:fixed;top:14px;left:16px;right:16px;z-index:60;transition:background .4s ease,border-color .4s ease;max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(26,26,26,.72);backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.nav{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:16px;right:16px;z-index:60;transition:background .4s ease,border-color .4s ease;max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(26,26,26,.72);backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 6px 24px rgba(0,0,0,.4)}
 body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55,.35)}
 .nav-logo{display:flex;align-items:center;gap:8px;color:var(--gold);font-weight:700;letter-spacing:.14em;font-size:13px}
 .nav-dot{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4 0%,var(--gold) 45%,#6b5616 100%)}
@@ -229,10 +263,8 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 .nav-links{display:none;gap:2px;font-size:13px;font-weight:500}
 @media (min-width:720px){.nav-links{display:flex}}
 .nav-links a{color:var(--cream);padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
-.nav-links a:hover{background:var(--gold-soft);color:var(--gold)}
 .nav-right{display:flex;align-items:center;gap:6px}
 .lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:40px;height:36px;padding:0 10px;border-radius:999px;border:1px solid var(--border);color:var(--cream);font-size:12.5px;font-weight:700;letter-spacing:.08em;transition:border-color .25s,color .25s}
-.lang-switch:hover{border-color:var(--gold);color:var(--gold)}
 
 .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:linear-gradient(90deg,#8a7020,var(--gold),#fff3c4);transform-origin:0 0;transform:scaleX(0)}
 
@@ -303,7 +335,6 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 /* spot cards (glow no mouse) */
 .spot{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:24px;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .5s;overflow:hidden}
 .spot::before{content:'';position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,-400px) var(--my,-400px),rgba(212,175,55,.16),transparent 60%);pointer-events:none}
-.spot:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.45)}
 
 .oferta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px}
 .oferta-card{padding:40px}
@@ -333,21 +364,16 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
 .chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid var(--border);background:#1f1f1f;color:var(--cream);font-size:14px;font-weight:600;transition:border-color .25s,background .25s,color .25s;white-space:nowrap}
 .chip span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
-.chip:hover{border-color:rgba(212,175,55,.6)}
 .chip.on{background:var(--gold);border-color:var(--gold);color:var(--black)}
 .chip.on span{color:rgba(26,26,26,.7)}
 .modelos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:20px}
 .modelo-card{display:flex;flex-direction:column;color:var(--cream);border-radius:20px;border:1px solid var(--border);background:var(--panel);position:relative;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .5s;overflow:hidden}
-.modelo-card:hover{color:var(--cream);border-color:rgba(212,175,55,.6);transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(212,175,55,.45)}
 .modelo-preview{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111;border-bottom:1px solid var(--border)}
 .modelo-preview iframe{position:absolute;top:0;left:0;width:400%;height:400%;border:0;transform:scale(.25);transform-origin:0 0;pointer-events:none;background:#1a1a1a}
-.mp-desk{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.modelo-card:hover .mp-desk{transform:scale(1.04)}
+.mp-desk{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.23,1,.32,1)}
 .mp-phone{position:absolute;right:12px;bottom:-18px;width:23%;aspect-ratio:9/19;border-radius:12px;border:3px solid #111;outline:1px solid #4a4a4a;overflow:hidden;box-shadow:0 18px 30px -10px rgba(0,0,0,.85);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .mp-phone img{width:100%;height:100%;object-fit:cover;object-position:top}
-.modelo-card:hover .mp-phone{transform:translateY(-10px)}
 .mp-live{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(17,17,17,.82);backdrop-filter:blur(6px);font-size:11.5px;font-weight:700;color:var(--gold);border:1px solid rgba(212,175,55,.35);opacity:0;transform:translateY(-4px);transition:opacity .3s,transform .3s}
-.modelo-card:hover .mp-live{opacity:1;transform:none}
 .modelo-body{padding:18px 20px 22px}
 .modelo-seg{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px}
 .modelo-nome{font-family:Poppins,sans-serif;font-weight:700;font-size:21px;line-height:1.15;letter-spacing:-.02em}
@@ -362,14 +388,12 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 /* hero: prints reais na tela */
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .btn.btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(245,241,235,.28);box-shadow:none}
-.btn.btn-ghost:hover{background:rgba(245,241,235,.06);color:var(--cream);border-color:var(--gold)}
 .screen-real{padding:0;display:block;background:#111}
 .phone-real{padding:0;position:relative;overflow:hidden;display:block}
 .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;animation:shotCycle 15s ease infinite both}
 .shot.s1{animation-delay:0s}.shot.s2{animation-delay:5s}.shot.s3{animation-delay:10s}
 @keyframes shotCycle{0%{opacity:0}3%{opacity:1}33.3%{opacity:1}36%{opacity:0}100%{opacity:0}}
 .sphere-caption{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:rgba(20,20,20,.7);font-size:13px;color:var(--body-text);white-space:nowrap}
-.sphere-caption:hover{color:var(--cream);border-color:rgba(212,175,55,.5)}
 .sphere-caption .arr{color:var(--gold)}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulseLive 1.8s ease-out infinite}
 @keyframes pulseLive{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}100%{box-shadow:0 0 0 8px rgba(74,222,128,0)}}
@@ -388,7 +412,6 @@ body.has-scrolled .nav{background:rgba(18,18,18,.9);border-color:rgba(212,175,55
 .faq-list{display:flex;flex-direction:column;border-top:1px solid var(--border)}
 .faq-item{border-bottom:1px solid var(--border)}
 .faq-q{all:unset;transition:color .25s;cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:18px;font-weight:600;color:var(--cream);box-sizing:border-box}
-.faq-q:hover{color:var(--gold)}
 .faq-icon{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:18px}
 .faq-a{padding:0 40px 24px 0;font-size:16px;line-height:1.65;color:var(--body-text);display:none}
 .faq-item.open .faq-a{display:block}
@@ -417,7 +440,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
   .btn{padding:16px 28px;font-size:16px}
 
   /* nav: logo + menu hambúrguer */
-  .nav{top:10px;left:10px;right:10px;padding:6px 6px 6px 16px;flex-wrap:wrap;gap:0;transition:border-radius .3s ease,background .3s ease}
+  .nav{top:calc(10px + env(safe-area-inset-top,0px));left:10px;right:10px;padding:6px 6px 6px 16px;flex-wrap:wrap;gap:0;transition:border-radius .3s ease,background .3s ease}
   .nav-word{font-size:17px}
   .nav-right .btn-sm{display:none}
   .nav-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;border-radius:50%;background:var(--gold-soft);border:1px solid rgba(212,175,55,.4);cursor:pointer;padding:0}
@@ -543,6 +566,34 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
   .mobile-bar .btn{width:100%;justify-content:center;padding:16px 20px;font-size:16px;box-shadow:0 14px 34px -8px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08) inset}
 }
 
+
+/* ===== toque, foco e acessibilidade (auditoria out/2026) ===== */
+@media (hover:hover) and (pointer:fine){
+  a:hover{color:var(--gold-hover)}
+  .btn:hover{background:var(--gold-hover);color:var(--black);transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(212,175,55,.6)}
+  .nav-links a:hover{background:var(--gold-soft);color:var(--gold)}
+  .lang-switch:hover{border-color:var(--gold);color:var(--gold)}
+  .spot:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.45)}
+  .chip:hover{border-color:rgba(212,175,55,.6)}
+  .modelo-card:hover{color:var(--cream);border-color:rgba(212,175,55,.6);transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(212,175,55,.45)}
+  .modelo-card:hover .mp-desk{transform:scale(1.04)}
+  .modelo-card:hover .mp-phone{transform:translateY(-10px)}
+  .modelo-card:hover .mp-live{opacity:1;transform:none}
+  .btn.btn-ghost:hover{background:rgba(245,241,235,.06);color:var(--cream);border-color:var(--gold)}
+  .sphere-caption:hover{color:var(--cream);border-color:rgba(212,175,55,.5)}
+  .faq-q:hover{color:var(--gold)}
+}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+a,button,.chip{touch-action:manipulation}
+button,.btn,.chip,.nav-toggle,.lang-switch,.faq-q{-webkit-user-select:none;user-select:none}
+.btn:active{transform:scale(.97);transition-duration:.1s}
+.modelo-card:active,.spot:active{transform:scale(.985);transition-duration:.12s}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.chip:focus-visible,.faq-q:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:10px}
+.skip{position:absolute;left:16px;top:-80px;z-index:200;background:var(--gold);color:var(--black);padding:12px 18px;border-radius:999px;font-weight:700;transition:top .2s}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px));color:var(--black)}
+@media (max-width:719px){.hero-fx-cone,.hero-rings{display:none}}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
   [data-reveal]{opacity:1 !important;transform:none !important;filter:none !important}
@@ -554,8 +605,9 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
 <body>
 
 <div class="progress" id="progress"></div>
+<a class="skip" href="#modelos">Pular para o conteúdo</a>
 
-<div style="min-height:100vh;background:var(--black);padding-bottom:88px">
+<div style="min-height:100svh;background:var(--black);padding-bottom:88px">
 
 <!-- HERO -->
 <header class="hero">
@@ -581,7 +633,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
   </nav>
 
   <div id="top" class="hero-inner">
-    <div class="eyebrow hero-in" data-reveal>SITE + CUIDADO MENSAL</div>
+    <div class="eyebrow hero-in" data-reveal>SITES PARA PEQUENOS NEGÓCIOS · JARAGUÁ DO SUL</div>
     <h1 class="hero-in" data-reveal>Você foca no seu negócio. <em class="shine">A gente cuida do site.</em></h1>
     <p class="lead hero-in" data-reveal>A Veyroni cria o site profissional da sua empresa e cuida dele todo mês. Mudou alguma coisa? Manda no WhatsApp e pronto.</p>
     <div class="hero-cta-wrap hero-in" data-reveal id="hero-cta">
@@ -598,7 +650,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
         <div class="laptop">
           <div class="laptop-body">
             <div class="screen screen-real">
-              <img class="shot s1" src="/img/modelos/barbearia-coragem-d.webp" alt="Site modelo Barbearia Coragem" width="960" height="600">
+              <img class="shot s1" src="/img/modelos/barbearia-coragem-d.webp" alt="Site modelo Barbearia Coragem" width="960" height="600" fetchpriority="high">
               <img class="shot s2" src="/img/modelos/chama-burger-d.webp" alt="Site modelo Chama Burger" width="960" height="600">
               <img class="shot s3" src="/img/modelos/jardim-vivo-d.webp" alt="Site modelo Jardim Vivo Floricultura" width="960" height="600">
             </div>
@@ -641,7 +693,20 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
       </div>
     </div>
     <div class="chips" id="chips" data-reveal></div>
-    <div class="modelos-grid swipe" id="modelos-grid"></div>
+    <div class="modelos-grid swipe" id="modelos-grid">
+      <a class="modelo-card spot" href="/modelos/chama-burger/" target="_blank" rel="noopener noreferrer" data-cat="comida" data-evento="modelo-chama-burger"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/chama-burger-d.webp" alt="Site modelo Chama Burger" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/chama-burger-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Lanchonete</div><div class="modelo-nome">Chama Burger</div><div class="modelo-tipo">Cardápio integrado e pedidos direto pelo WhatsApp.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/barbearia-coragem/" target="_blank" rel="noopener noreferrer" data-cat="beleza" data-evento="modelo-barbearia-coragem"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/barbearia-coragem-d.webp" alt="Site modelo Barbearia Coragem" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/barbearia-coragem-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Barbearia</div><div class="modelo-nome">Barbearia Coragem</div><div class="modelo-tipo">Agendamento online, serviços com preço e galeria de cortes.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/aurora-beauty/" target="_blank" rel="noopener noreferrer" data-cat="beleza" data-evento="modelo-aurora-beauty"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/aurora-beauty-d.webp" alt="Site modelo Aurora Beauty" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/aurora-beauty-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Salão de beleza</div><div class="modelo-nome">Aurora Beauty</div><div class="modelo-tipo">Serviços, portfólio e agendamento pelo WhatsApp.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/forja-fit/" target="_blank" rel="noopener noreferrer" data-cat="esporte" data-evento="modelo-forja-fit"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/forja-fit-d.webp" alt="Site modelo Forja Fit" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/forja-fit-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Academia</div><div class="modelo-nome">Forja Fit</div><div class="modelo-tipo">Tabela de planos e aula experimental agendada em minutos.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/dr-rafael-monteiro/" target="_blank" rel="noopener noreferrer" data-cat="saude" data-evento="modelo-dr-rafael-monteiro"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/dr-rafael-monteiro-d.webp" alt="Site modelo Dr. Rafael Monteiro" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/dr-rafael-monteiro-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Dermatologia</div><div class="modelo-nome">Dr. Rafael Monteiro</div><div class="modelo-tipo">Especialidades explicadas e consulta solicitada pelo site.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/clinica-vertice/" target="_blank" rel="noopener noreferrer" data-cat="saude" data-evento="modelo-clinica-vertice"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/clinica-vertice-d.webp" alt="Site modelo Clínica Vértice" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/clinica-vertice-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Odontologia</div><div class="modelo-nome">Clínica Vértice</div><div class="modelo-tipo">Procedimentos, equipe e agendamento de avaliação.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/jardim-vivo/" target="_blank" rel="noopener noreferrer" data-cat="lojas" data-evento="modelo-jardim-vivo"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/jardim-vivo-d.webp" alt="Site modelo Jardim Vivo" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/jardim-vivo-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Floricultura</div><div class="modelo-nome">Jardim Vivo</div><div class="modelo-tipo">Catálogo com filtro, carrinho com data de entrega e assinatura.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/atelie-da-bruna/" target="_blank" rel="noopener noreferrer" data-cat="lojas" data-evento="modelo-atelie-da-bruna"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/atelie-da-bruna-d.webp" alt="Site modelo Ateliê da Bruna" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/atelie-da-bruna-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Loja de roupas</div><div class="modelo-nome">Ateliê da Bruna</div><div class="modelo-tipo">Catálogo de peças e guia de medidas.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/alicerce-imoveis/" target="_blank" rel="noopener noreferrer" data-cat="servicos" data-evento="modelo-alicerce-imoveis"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/alicerce-imoveis-d.webp" alt="Site modelo Alicerce Imóveis" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/alicerce-imoveis-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Imobiliária</div><div class="modelo-nome">Alicerce Imóveis</div><div class="modelo-tipo">Catálogo de imóveis com busca por código, bairro ou tipo.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/tatame-norte/" target="_blank" rel="noopener noreferrer" data-cat="esporte" data-evento="modelo-tatame-norte"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/tatame-norte-d.webp" alt="Site modelo Tatame Norte" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/tatame-norte-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Artes marciais</div><div class="modelo-nome">Tatame Norte</div><div class="modelo-tipo">Grade de horários por modalidade e aula experimental.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card spot" href="/modelos/escolinha-bola-rolando/" target="_blank" rel="noopener noreferrer" data-cat="esporte" data-evento="modelo-escolinha-bola-rolando"><div class="modelo-preview"><img class="mp-desk" src="/img/modelos/escolinha-bola-rolando-d.webp" alt="Site modelo Escolinha Bola Rolando" loading="lazy" width="960" height="600"><span class="mp-phone"><img src="/img/modelos/escolinha-bola-rolando-m.webp" alt="" loading="lazy" width="540" height="1169"></span><span class="mp-live">Ver ao vivo ↗</span></div><div class="modelo-body"><div class="modelo-seg">Escolinha de futebol</div><div class="modelo-nome">Escolinha Bola Rolando</div><div class="modelo-tipo">O pai digita o ano de nascimento e já vê a turma e os horários.</div><div class="modelo-link">Abrir o site →</div></div></a>
+      <a class="modelo-card modelo-extra wa-link" href="https://wa.me/5547996419450?text=Ol%C3%A1!%20Meu%20segmento%20n%C3%A3o%20est%C3%A1%20nos%20modelos%20do%20site.%20Voc%C3%AAs%20fazem%20pro%20meu%20neg%C3%B3cio%3F" target="_blank" rel="noopener noreferrer" data-cat="todos" data-evento="cta-modelo-extra" data-msg="Olá! Meu segmento não está nos modelos do site. Vocês fazem pro meu negócio?"><div class="extra-inner"><div class="extra-plus">+</div><div class="modelo-nome">Seu negócio não está aqui?</div><div class="modelo-tipo">Esses são só exemplos. A gente cria o site do zero pro seu segmento, com a sua identidade.</div><div class="modelo-link">Falar no WhatsApp →</div></div></a>
+    </div>
     <div class="swipe-meta" data-for="modelos-grid"><span>Arraste para ver mais →</span><span class="swipe-bar"><i></i></span><span class="swipe-count">1/12</span></div>
     <div class="modelos-foot" data-reveal>
       <div>
@@ -796,14 +861,22 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
   <div class="wrap-narrow">
     <div class="eyebrow" data-reveal>DÚVIDAS</div>
     <h2 data-reveal style="margin-bottom:40px">Perguntas frequentes</h2>
-    <div class="faq-list" id="faq-list"></div>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1"><span>Quanto custa?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-1">Cada negócio precisa de uma coisa. Conta pra gente no WhatsApp e você recebe o orçamento sem compromisso.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2"><span>Quanto tempo leva pra ficar pronto?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-2">Depende do tamanho do site. O prazo vem junto com o orçamento.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3"><span>Serve pro meu tipo de negócio?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-3">Se você atende cliente, serve: lanchonete, loja, academia, barbearia, salão, clínica e por aí vai.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4"><span>Vou precisar fazer reunião ou ligação?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-4">Não. É tudo pelo WhatsApp, no seu tempo.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5"><span>Posso pedir mudanças depois que o site estiver no ar?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-5">Pode. É pra isso que existe a manutenção mensal. Manda mensagem e a gente atualiza.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6"><span>O domínio é meu mesmo?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-6">É. Fica no seu nome, mesmo se um dia você cancelar a manutenção.</div></div>
+      <div class="faq-item" data-reveal><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-7"><span>Como é o pagamento?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a" id="faq-a-7">A gente combina as formas de pagamento junto com o orçamento.</div></div>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
     <span class="footer-brand">VEYRONI</span>
-    <span>Jaraguá do Sul (SC) · WhatsApp (47) 99641-9450 · seg a sex 13h–18h, sáb 10h–15h · <a href="/en/" hreflang="en" lang="en">English</a></span>
+    <span>Jaraguá do Sul (SC) · WhatsApp (47) 99641-9450 · seg a sex 13h–18h, sáb 10h–15h · <a href="/en/" hreflang="en" lang="en">English</a> · <a href="/privacidade/">Privacidade</a></span>
   </div>
 </footer>
 
@@ -858,46 +931,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
     { slug: 'escolinha-bola-rolando', nome: 'Escolinha Bola Rolando', seg: 'Escolinha de futebol', cat: 'esporte', tipo: 'O pai digita o ano de nascimento e já vê a turma e os horários.' }
   ];
   var cats = [['todos','Todos'],['beleza','Beleza'],['saude','Saúde'],['esporte','Esporte'],['comida','Comida'],['lojas','Lojas'],['servicos','Serviços']];
-  var modelosGrid = document.getElementById('modelos-grid');
-  modelos.forEach(function(m){
-    var a = document.createElement('a');
-    a.className = 'modelo-card spot';
-    a.href = '/modelos/' + m.slug + '/';
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.setAttribute('data-cat', m.cat);
-    a.setAttribute('data-evento', 'modelo-' + m.slug);
-    a.innerHTML =
-      '<div class="modelo-preview">' +
-        '<img class="mp-desk" src="/img/modelos/' + m.slug + '-d.webp" alt="Site modelo ' + m.nome + '" loading="lazy" width="960" height="600">' +
-        '<span class="mp-phone"><img src="/img/modelos/' + m.slug + '-m.webp" alt="" loading="lazy" width="540" height="1169"></span>' +
-        '<span class="mp-live">Ver ao vivo ↗</span>' +
-      '</div>' +
-      '<div class="modelo-body">' +
-        '<div class="modelo-seg">' + m.seg + '</div>' +
-        '<div class="modelo-nome">' + m.nome + '</div>' +
-        '<div class="modelo-tipo">' + m.tipo + '</div>' +
-        '<div class="modelo-link">Abrir o site →</div>' +
-      '</div>';
-    modelosGrid.appendChild(a);
-  });
-  // card final: segmento que não está na lista
-  var extra = document.createElement('a');
-  extra.className = 'modelo-card modelo-extra wa-link';
-  extra.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent('Olá! Meu segmento não está nos modelos do site. Vocês fazem pro meu negócio?');
-  extra.target = '_blank';
-  extra.rel = 'noopener noreferrer';
-  extra.setAttribute('data-cat', 'todos');
-  extra.setAttribute('data-evento', 'cta-modelo-extra');
-  extra.setAttribute('data-msg', 'Olá! Meu segmento não está nos modelos do site. Vocês fazem pro meu negócio?');
-  extra.innerHTML =
-    '<div class="extra-inner">' +
-      '<div class="extra-plus">+</div>' +
-      '<div class="modelo-nome">Seu negócio não está aqui?</div>' +
-      '<div class="modelo-tipo">Esses são só exemplos. A gente cria o site do zero pro seu segmento, com a sua identidade.</div>' +
-      '<div class="modelo-link">Falar no WhatsApp →</div>' +
-    '</div>';
-  modelosGrid.appendChild(extra);
+  var modelosGrid = document.getElementById('modelos-grid'); // cards já vêm no HTML
 
   // Se algum print não carregar, mostra o site ao vivo no lugar (nunca fica quebrado)
   modelosGrid.querySelectorAll('.modelo-card[data-cat]').forEach(function(card){
@@ -924,10 +958,11 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
     var b = document.createElement('button');
     b.type = 'button';
     b.className = 'chip' + (i === 0 ? ' on' : '');
+    b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
     b.innerHTML = c[1] + ' <span>' + n + '</span>';
     b.addEventListener('click', function(){
-      chipsEl.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('on'); });
-      b.classList.add('on');
+      chipsEl.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+      b.classList.add('on'); b.setAttribute('aria-pressed','true');
       Array.prototype.forEach.call(modelosGrid.children, function(card){
         var cat = card.getAttribute('data-cat');
         card.style.display = (c[0] === 'todos' || cat === c[0] || cat === 'todos') ? '' : 'none';
@@ -939,36 +974,22 @@ footer{padding:40px 24px;border-top:1px solid var(--border)}
   });
 
   // FAQ
-  var faqData = [
-    ['Quanto custa?', 'Cada negócio precisa de uma coisa. Conta pra gente no WhatsApp e você recebe o orçamento sem compromisso.'],
-    ['Quanto tempo leva pra ficar pronto?', 'Depende do tamanho do site. O prazo vem junto com o orçamento.'],
-    ['Serve pro meu tipo de negócio?', 'Se você atende cliente, serve: lanchonete, loja, academia, barbearia, salão, clínica e por aí vai.'],
-    ['Vou precisar fazer reunião ou ligação?', 'Não. É tudo pelo WhatsApp, no seu tempo.'],
-    ['Posso pedir mudanças depois que o site estiver no ar?', 'Pode. É pra isso que existe a manutenção mensal. Manda mensagem e a gente atualiza.'],
-    ['O domínio é meu mesmo?', 'É. Fica no seu nome, mesmo se um dia você cancelar a manutenção.'],
-    ['Como é o pagamento?', 'A gente combina as formas de pagamento junto com o orçamento.']
-  ];
   var faqList = document.getElementById('faq-list');
-  faqData.forEach(function(pair){
-    var item = document.createElement('div');
-    item.className = 'faq-item';
-    item.setAttribute('data-reveal', '');
-    item.innerHTML =
-      '<button class="faq-q"><span>' + pair[0] + '</span><span class="faq-icon">+</span></button>' +
-      '<div class="faq-a">' + pair[1] + '</div>';
+  faqList.querySelectorAll('.faq-item').forEach(function(item){
     var btn = item.querySelector('.faq-q');
     btn.addEventListener('click', function(){
       var isOpen = item.classList.contains('open');
       faqList.querySelectorAll('.faq-item.open').forEach(function(o){
         o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
         o.querySelector('.faq-icon').textContent = '+';
       });
       if (!isOpen) {
         item.classList.add('open');
-        item.querySelector('.faq-icon').textContent = '−';
+        btn.setAttribute('aria-expanded', 'true');
+        item.querySelector('.faq-icon').textContent = '\u2212';
       }
     });
-    faqList.appendChild(item);
   });
 
   // Mobile sticky bar visibility
